@@ -1,0 +1,65 @@
+Temperature_Level,Rainfall_Level,Sector,Tier,Action
+Low,Low,public_health,Low,Normal public health guidelines; routine seasonal wellness monitoring.
+Low,Low,urban_infrastructure,Low,Normal urban planning operations.
+Low,Low,stormwater_drainage,Low,Optimal period for structural drain repairs and silt excavation.
+Low,Low,water_and_agriculture,Low,Conserve irrigation reservoirs; employ drip irrigation; monitor soil moisture depletion.
+Low,Normal,public_health,Low,Normal public health guidelines; routine seasonal wellness monitoring.
+Low,Normal,urban_infrastructure,Low,Normal urban planning operations.
+Low,Normal,stormwater_drainage,Normal,Routine cleaning of storm drains; monitor standard stormwater runoff.
+Low,Normal,water_and_agriculture,Normal,Normal irrigation scheduling; replenish groundwater recharge wells.
+Low,High,public_health,Low,Normal public health guidelines; routine seasonal wellness monitoring.
+Low,High,urban_infrastructure,Low,Normal urban planning operations.
+Low,High,stormwater_drainage,High,Inspect roadside culverts; clear plastic and sediment blockages; monitor retention ponds.
+Low,High,water_and_agriculture,High,Ensure rainwater harvesting overflow conduits are unobstructed; advise farmers on drainage.
+Low,Very High,public_health,Low,Normal public health guidelines; routine seasonal wellness monitoring.
+Low,Very High,urban_infrastructure,Low,Normal urban planning operations.
+Low,Very High,stormwater_drainage,Very High,High-capacity dewatering pumps stationed at known vulnerable junctions; clear major storm drains immediately.
+Low,Very High,water_and_agriculture,Very High,Rainwater harvesting tanks primed; evaluate surface reservoir inflows.
+Moderate,Low,public_health,Moderate,Encourage adequate fluid intake; ensure school classrooms are well-ventilated.
+Moderate,Low,urban_infrastructure,Moderate,Routine maintenance of shade structures and urban parks.
+Moderate,Low,stormwater_drainage,Low,Optimal period for structural drain repairs and silt excavation.
+Moderate,Low,water_and_agriculture,Low,Conserve irrigation reservoirs; employ drip irrigation; monitor soil moisture depletion.
+Moderate,Normal,public_health,Moderate,Encourage adequate fluid intake; ensure school classrooms are well-ventilated.
+Moderate,Normal,urban_infrastructure,Moderate,Routine maintenance of shade structures and urban parks.
+Moderate,Normal,stormwater_drainage,Normal,Routine cleaning of storm drains; monitor standard stormwater runoff.
+Moderate,Normal,water_and_agriculture,Normal,Normal irrigation scheduling; replenish groundwater recharge wells.
+Moderate,High,public_health,Moderate,Encourage adequate fluid intake; ensure school classrooms are well-ventilated.
+Moderate,High,urban_infrastructure,Moderate,Routine maintenance of shade structures and urban parks.
+Moderate,High,stormwater_drainage,High,Inspect roadside culverts; clear plastic and sediment blockages; monitor retention ponds.
+Moderate,High,water_and_agriculture,High,Ensure rainwater harvesting overflow conduits are unobstructed; advise farmers on drainage.
+Moderate,Very High,public_health,Moderate,Encourage adequate fluid intake; ensure school classrooms are well-ventilated.
+Moderate,Very High,urban_infrastructure,Moderate,Routine maintenance of shade structures and urban parks.
+Moderate,Very High,stormwater_drainage,Very High,High-capacity dewatering pumps stationed at known vulnerable junctions; clear major storm drains immediately.
+Moderate,Very High,water_and_agriculture,Very High,Rainwater harvesting tanks primed; evaluate surface reservoir inflows.
+High,Low,public_health,High,Mandate shade and hydration breaks for gig workers/traffic police; issue public advisories on peak heat exposure.
+High,Low,urban_infrastructure,High,Increase tree canopy irrigation; inspect cool pavement corridors; maintain public drinking fountains.
+High,Low,stormwater_drainage,Low,Optimal period for structural drain repairs and silt excavation.
+High,Low,water_and_agriculture,Low,Conserve irrigation reservoirs; employ drip irrigation; monitor soil moisture depletion.
+High,Normal,public_health,High,Mandate shade and hydration breaks for gig workers/traffic police; issue public advisories on peak heat exposure.
+High,Normal,urban_infrastructure,High,Increase tree canopy irrigation; inspect cool pavement corridors; maintain public drinking fountains.
+High,Normal,stormwater_drainage,Normal,Routine cleaning of storm drains; monitor standard stormwater runoff.
+High,Normal,water_and_agriculture,Normal,Normal irrigation scheduling; replenish groundwater recharge wells.
+High,High,public_health,High,Mandate shade and hydration breaks for gig workers/traffic police; issue public advisories on peak heat exposure.
+High,High,urban_infrastructure,High,Increase tree canopy irrigation; inspect cool pavement corridors; maintain public drinking fountains.
+High,High,stormwater_drainage,High,Inspect roadside culverts; clear plastic and sediment blockages; monitor retention ponds.
+High,High,water_and_agriculture,High,Ensure rainwater harvesting overflow conduits are unobstructed; advise farmers on drainage.
+High,Very High,public_health,High,Mandate shade and hydration breaks for gig workers/traffic police; issue public advisories on peak heat exposure.
+High,Very High,urban_infrastructure,High,Increase tree canopy irrigation; inspect cool pavement corridors; maintain public drinking fountains.
+High,Very High,stormwater_drainage,Very High,High-capacity dewatering pumps stationed at known vulnerable junctions; clear major storm drains immediately.
+High,Very High,water_and_agriculture,Very High,Rainwater harvesting tanks primed; evaluate surface reservoir inflows.
+Very High,Low,public_health,Very High,Emergency ORS booths at transit hubs; hospitals prepare IV hydration and cooling beds; restrict noon construction shifts.
+Very High,Low,urban_infrastructure,Very High,Apply cool-roof coatings; misting at dense pedestrian plazas; activate emergency heat action plan.
+Very High,Low,stormwater_drainage,Low,Optimal period for structural drain repairs and silt excavation.
+Very High,Low,water_and_agriculture,Low,Conserve irrigation reservoirs; employ drip irrigation; monitor soil moisture depletion.
+Very High,Normal,public_health,Very High,Emergency ORS booths at transit hubs; hospitals prepare IV hydration and cooling beds; restrict noon construction shifts.
+Very High,Normal,urban_infrastructure,Very High,Apply cool-roof coatings; misting at dense pedestrian plazas; activate emergency heat action plan.
+Very High,Normal,stormwater_drainage,Normal,Routine cleaning of storm drains; monitor standard stormwater runoff.
+Very High,Normal,water_and_agriculture,Normal,Normal irrigation scheduling; replenish groundwater recharge wells.
+Very High,High,public_health,Very High,Emergency ORS booths at transit hubs; hospitals prepare IV hydration and cooling beds; restrict noon construction shifts.
+Very High,High,urban_infrastructure,Very High,Apply cool-roof coatings; misting at dense pedestrian plazas; activate emergency heat action plan.
+Very High,High,stormwater_drainage,High,Inspect roadside culverts; clear plastic and sediment blockages; monitor retention ponds.
+Very High,High,water_and_agriculture,High,Ensure rainwater harvesting overflow conduits are unobstructed; advise farmers on drainage.
+Very High,Very High,public_health,Very High,Emergency ORS booths at transit hubs; hospitals prepare IV hydration and cooling beds; restrict noon construction shifts.
+Very High,Very High,urban_infrastructure,Very High,Apply cool-roof coatings; misting at dense pedestrian plazas; activate emergency heat action plan.
+Very High,Very High,stormwater_drainage,Very High,High-capacity dewatering pumps stationed at known vulnerable junctions; clear major storm drains immediately.
+Very High,Very High,water_and_agriculture,Very High,Rainwater harvesting tanks primed; evaluate surface reservoir inflows.

@@ -1,0 +1,20 @@
+STEP 4: DATA INTEGRATION REPORT
+=============================================
+Weather records: 16071
+ONI monthly records: 920
+Combined records: 16071
+Date range: 1981-01-01 00:00:00 to 2024-12-31 00:00:00
+Missing ONI values: 0
+Duplicate dates: 0
+
+ENSO Episode Distribution:
+ENSO_Episode
+Neutral    484
+La Niña    221
+El Niño    215
+
+Merge Status:
+_merge
+both          16071
+left_only         0
+right_only        0

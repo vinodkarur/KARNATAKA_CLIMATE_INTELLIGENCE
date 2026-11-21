@@ -1,0 +1,7 @@
+Metric,Threshold
+Temperature_50th_Percentile,21.322499999999998
+Temperature_75th_Percentile,23.893250000000002
+Temperature_90th_Percentile,24.832
+Rainfall_25th_Percentile,0.006202475
+Rainfall_75th_Percentile,7.35175
+Rainfall_90th_Percentile,16.224699999999995

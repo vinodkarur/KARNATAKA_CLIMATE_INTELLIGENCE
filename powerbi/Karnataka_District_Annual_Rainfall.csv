@@ -1,0 +1,323 @@
+district,year,total_mm,mean_mm,max_mm,rainy_days,drought_risk,flood_risk
+Bagalkot,1999,820.4,9.32,63.4,46,Moderate,High
+Bagalkot,2000,303.7,4.75,30.0,34,Severe,Moderate
+Bagalkot,2001,750.8,8.44,83.0,45,Moderate,High
+Bagalkot,2002,712.8,5.75,71.0,50,Moderate,High
+Bagalkot,2003,522.5,5.68,56.5,48,Moderate,High
+Bagalkot,2004,628.8,4.99,36.6,58,Moderate,Moderate
+Bagalkot,2005,396.9,3.23,38.0,36,Severe,Moderate
+Bagalkot,2006,442.1,3.32,23.4,51,Severe,Moderate
+Bagalkot,2007,769.5,5.54,95.6,60,Moderate,High
+Bagalkot,2008,466.2,4.62,50.6,44,Severe,High
+Bagalkot,2009,816.6,6.14,115.2,56,Moderate,Very High
+Bagalkot,2010,573.3,4.55,39.8,52,Moderate,Moderate
+Bagalkot,2011,661.0,4.86,44.8,60,Moderate,Moderate
+Bagalkot,2012,653.3,6.53,45.6,52,Moderate,Moderate
+Bagalkot,2013,1238.7,8.48,71.2,68,Low,High
+Bagalkot,2014,1322.3,7.31,82.0,90,Low,High
+Bagalkot,2015,971.2,7.14,86.8,61,Low,High
+Bagalkot,2016,694.6,4.73,39.4,59,Moderate,Moderate
+Bagalkot,2017,1362.9,7.17,71.2,89,Low,High
+Bagalkot,2018,577.9,4.28,54.4,54,Moderate,High
+Bagalkot,2019,1732.3,8.88,119.6,98,Low,Very High
+Bagalkot,2020,251.4,6.13,30.6,22,Severe,Moderate
+Belgaum,2000,1181.8,6.29,56.0,88,Low,High
+Belgaum,2001,1262.2,4.19,38.9,128,Low,Moderate
+Belgaum,2002,1528.1,5.54,53.7,130,Low,High
+Belgaum,2003,1519.4,4.95,102.5,130,Low,Very High
+Belgaum,2004,1872.7,5.66,64.0,158,Low,High
+Belgaum,2005,2497.4,6.59,68.4,193,Low,High
+Belgaum,2006,2271.3,5.78,43.6,208,Low,Moderate
+Belgaum,2007,3027.03,8.23,86.0,205,Low,High
+Belgaum,2008,2498.2,7.96,84.1,165,Low,High
+Belgaum,2009,2675.9,7.56,82.8,173,Low,High
+Belgaum,2010,2293.1,7.06,117.5,181,Low,Very High
+Belgaum,2011,2706.0,7.48,93.4,213,Low,High
+Belgaum,2012,2248.5,6.0,57.4,177,Low,High
+Belgaum,2013,2625.4,5.38,58.8,211,Low,High
+Belgaum,2014,3549.1,8.14,57.6,256,Low,High
+Belgaum,2015,2022.0,6.4,66.9,150,Low,High
+Belgaum,2016,2476.8,6.59,81.4,187,Low,High
+Belgaum,2017,2575.54,6.62,100.4,181,Low,Very High
+Belgaum,2018,2983.4,6.23,123.4,254,Low,Very High
+Belgaum,2019,4976.7,9.78,128.2,298,Low,Very High
+Belgaum,2020,333.4,6.95,40.0,25,Severe,Moderate
+Bellary,1992,11.8,3.93,9.8,1,Severe,Moderate
+Bellary,2000,220.8,4.6,27.0,26,Severe,Moderate
+Bellary,2001,527.3,11.98,66.0,29,Moderate,High
+Bellary,2002,346.7,6.8,48.8,29,Severe,Moderate
+Bellary,2003,31.2,4.46,21.8,1,Severe,Moderate
+Bellary,2004,461.4,10.49,64.2,26,Severe,High
+Bellary,2005,316.2,7.19,45.4,26,Severe,Moderate
+Bellary,2006,202.3,4.93,38.0,21,Severe,Moderate
+Bellary,2007,195.9,7.84,35.2,12,Severe,Moderate
+Bellary,2008,385.8,7.72,28.0,32,Severe,Moderate
+Bellary,2009,546.1,17.62,160.0,20,Moderate,Very High
+Bellary,2010,769.4,11.15,63.0,56,Moderate,High
+Bellary,2011,817.1,11.35,55.0,53,Moderate,High
+Bellary,2012,446.2,8.42,61.0,38,Severe,High
+Bellary,2013,644.5,9.92,59.0,42,Moderate,High
+Bellary,2014,782.9,13.98,90.0,47,Moderate,High
+Bellary,2015,419.5,14.98,133.0,24,Severe,Very High
+Bellary,2016,325.0,11.61,78.5,22,Severe,High
+Bellary,2017,686.0,12.7,84.0,41,Moderate,High
+Bidar,1998,0.5,0.5,0.5,0,Severe,Moderate
+Bidar,2001,199.9,5.71,25.4,20,Severe,Moderate
+Bidar,2002,204.8,4.88,26.5,25,Severe,Moderate
+Bidar,2003,250.8,7.84,55.0,15,Severe,High
+Bidar,2004,809.2,7.86,63.2,57,Moderate,High
+Bidar,2005,1173.3,6.98,73.5,84,Low,High
+Bidar,2006,1426.6,8.59,62.5,100,Low,High
+Bidar,2007,1668.7,9.87,116.0,102,Low,Very High
+Bidar,2008,1152.0,11.29,68.0,55,Low,High
+Bidar,2009,665.5,6.0,41.0,69,Moderate,Moderate
+Bidar,2010,1165.1,9.4,83.5,80,Low,High
+Bidar,2011,1553.2,9.08,74.0,110,Low,High
+Bidar,2012,1720.9,11.03,104.5,104,Low,Very High
+Bidar,2013,1635.9,9.98,86.0,110,Low,High
+Bidar,2014,1175.5,9.18,90.0,76,Low,High
+Bidar,2015,1802.9,10.8,65.0,123,Low,High
+Bidar,2016,2997.0,15.37,160.0,147,Low,Very High
+Bidar,2017,1906.6,11.49,104.0,119,Low,Very High
+Bidar,2018,1111.4,8.05,62.5,86,Low,High
+Bidar,2019,1359.9,8.83,76.0,101,Low,High
+Bijapur,1999,1798.0,9.04,111.0,115,Low,Very High
+Bijapur,2000,451.8,4.56,47.8,51,Severe,Moderate
+Bijapur,2001,389.3,5.9,41.4,38,Severe,Moderate
+Bijapur,2002,725.5,5.18,42.0,69,Moderate,Moderate
+Bijapur,2003,863.0,5.72,56.5,66,Moderate,High
+Bijapur,2004,811.0,5.52,40.5,62,Moderate,Moderate
+Bijapur,2005,839.4,4.64,38.0,81,Moderate,Moderate
+Bijapur,2006,554.9,3.49,27.4,67,Moderate,Moderate
+Bijapur,2007,882.3,6.68,60.0,63,Moderate,High
+Bijapur,2008,469.4,4.31,49.0,41,Severe,Moderate
+Bijapur,2009,809.9,5.0,69.0,64,Moderate,High
+Bijapur,2010,846.7,5.53,65.8,76,Moderate,High
+Bijapur,2011,676.9,5.64,50.2,64,Moderate,High
+Bijapur,2012,1558.0,9.27,110.4,83,Low,Very High
+Bijapur,2013,1628.0,8.1,100.4,115,Low,Very High
+Bijapur,2014,1927.8,8.57,83.8,129,Low,High
+Bijapur,2015,1369.3,8.67,116.0,90,Low,Very High
+Bijapur,2016,1823.6,9.65,81.2,112,Low,High
+Bijapur,2017,2159.8,9.82,134.0,124,Low,Very High
+Bijapur,2018,1167.5,6.02,68.5,88,Low,High
+Bijapur,2019,1967.2,8.52,76.0,129,Low,High
+Bijapur,2020,261.2,6.07,37.5,21,Severe,Moderate
+Chamarajanagar,2004,4732.7,61.46,924.0,60,Low,Very High
+Chamarajanagar,2005,3650.7,46.21,640.0,62,Low,Very High
+Chamarajanagar,2006,394.4,8.96,66.0,29,Severe,High
+Chamarajanagar,2007,123.3,7.25,42.0,10,Severe,Moderate
+Chamarajanagar,2011,246.6,6.66,68.0,18,Severe,High
+Chamarajanagar,2012,272.2,6.98,40.0,23,Severe,Moderate
+Chamarajanagar,2013,142.2,5.47,34.4,10,Severe,Moderate
+Chickballapur,2000,213.4,7.36,30.6,18,Severe,Moderate
+Chickballapur,2001,764.4,10.77,68.6,48,Moderate,High
+Chickballapur,2002,292.1,8.35,43.0,20,Severe,Moderate
+Chickballapur,2004,300.8,5.28,56.5,25,Severe,High
+Chickballapur,2005,1013.8,12.21,118.2,54,Low,Very High
+Chickballapur,2006,235.6,7.14,30.6,23,Severe,Moderate
+Chickballapur,2007,119.5,3.98,30.0,15,Severe,Moderate
+Chickballapur,2008,50.3,7.19,44.4,2,Severe,Moderate
+Chickballapur,2009,0.6,0.6,0.6,0,Severe,Moderate
+Chikmagalur,2001,1683.9,11.15,56.0,113,Low,High
+Chikmagalur,2002,1657.9,12.1,146.6,111,Low,Very High
+Chikmagalur,2003,1960.8,13.81,108.8,110,Low,Very High
+Chikmagalur,2004,2682.8,15.6,122.8,130,Low,Very High
+Chikmagalur,2005,1852.9,14.36,160.0,98,Low,Very High
+Chikmagalur,2006,1745.3,12.04,65.6,113,Low,High
+Chikmagalur,2007,2027.3,12.29,85.3,120,Low,High
+Chikmagalur,2008,1810.3,11.6,72.3,108,Low,High
+Chikmagalur,2009,1881.5,11.0,81.0,119,Low,High
+Chikmagalur,2010,1731.3,10.12,72.0,116,Low,High
+Chikmagalur,2011,1906.9,12.97,80.0,118,Low,High
+Chikmagalur,2012,1544.5,11.61,63.0,94,Low,High
+Chikmagalur,2013,1837.2,12.09,125.0,120,Low,Very High
+Chikmagalur,2014,2871.9,14.8,114.0,140,Low,Very High
+Chikmagalur,2015,2065.0,13.59,94.0,112,Low,High
+Chikmagalur,2016,384.3,9.61,43.0,32,Severe,Moderate
+Chikmagalur,2017,1104.8,8.63,41.6,87,Low,Moderate
+Chikmagalur,2018,2114.9,14.39,76.0,98,Low,High
+Chikmagalur,2019,1954.7,13.03,106.0,109,Low,Very High
+Chitradurga,2001,111.5,11.15,85.2,6,Severe,High
+Chitradurga,2006,361.2,10.32,101.2,15,Severe,Very High
+Chitradurga,2007,751.1,13.66,99.6,27,Moderate,High
+Chitradurga,2008,280.0,5.6,38.0,24,Severe,Moderate
+Chitradurga,2009,511.7,8.0,65.4,29,Moderate,High
+Chitradurga,2010,518.6,7.86,60.0,35,Moderate,High
+Chitradurga,2013,909.4,7.45,205.2,64,Low,Very High
+Chitradurga,2014,1869.7,11.69,81.4,114,Low,High
+Chitradurga,2015,2138.1,11.75,94.6,118,Low,High
+Chitradurga,2016,702.3,5.2,54.8,68,Moderate,High
+Chitradurga,2017,1133.1,8.46,65.4,69,Low,High
+Chitradurga,2018,1367.3,8.76,137.7,105,Low,Very High
+Chitradurga,2019,1807.5,11.89,95.8,100,Low,High
+Dakshin Kannada,2001,1761.6,15.32,82.2,90,Low,High
+Dakshin Kannada,2002,1881.2,15.55,102.6,93,Low,Very High
+Dakshin Kannada,2003,2772.7,14.99,149.4,143,Low,Very High
+Dakshin Kannada,2004,3450.6,16.35,106.2,170,Low,Very High
+Davanagere,2013,939.2,7.76,104.2,80,Low,Very High
+Davanagere,2014,2012.9,8.57,62.0,150,Low,High
+Davanagere,2015,1475.2,8.73,99.6,103,Low,High
+Davanagere,2016,852.4,5.36,51.6,69,Moderate,High
+Davanagere,2017,1711.8,9.3,136.4,110,Low,Very High
+Davanagere,2018,1459.6,6.73,106.4,99,Low,Very High
+Davanagere,2019,1740.9,8.45,141.8,122,Low,Very High
+Hassan,1994,673.4,14.64,59.6,38,Moderate,High
+Hassan,1995,223.5,7.71,32.0,18,Severe,Moderate
+Hassan,1996,49.2,8.2,18.2,5,Severe,Moderate
+Hassan,2001,709.7,4.55,52.5,75,Moderate,High
+Hassan,2002,924.5,5.6,53.5,82,Low,High
+Hassan,2003,952.78,5.29,61.2,85,Low,High
+Hassan,2004,2086.8,7.03,66.4,155,Low,High
+Hassan,2005,1448.0,7.91,68.0,101,Low,High
+Hassan,2006,1228.9,7.14,55.8,111,Low,High
+Hassan,2007,1158.3,7.83,61.5,92,Low,High
+Hassan,2008,1097.3,9.54,64.5,82,Low,High
+Hassan,2009,811.1,7.51,84.2,73,Moderate,High
+Hassan,2010,661.2,6.48,36.0,59,Moderate,Moderate
+Hassan,2011,1100.3,8.46,47.0,93,Low,Moderate
+Hassan,2012,611.5,5.41,31.0,59,Moderate,Moderate
+Hassan,2013,1662.67,5.94,60.0,147,Low,High
+Hassan,2014,2385.0,7.01,96.0,186,Low,High
+Hassan,2015,1542.6,6.89,60.0,118,Low,High
+Hassan,2016,549.0,4.99,45.0,61,Moderate,Moderate
+Hassan,2017,675.8,4.0,33.5,72,Moderate,Moderate
+Hassan,2018,949.0,5.07,57.0,92,Low,High
+Hassan,2019,1193.6,6.06,100.0,118,Low,High
+Haveri,2001,209.1,3.95,58.3,13,Severe,High
+Kalaburagi,1998,24.0,12.0,23.0,1,Severe,Moderate
+Kalaburagi,2001,457.6,8.32,57.4,32,Severe,High
+Kalaburagi,2002,190.9,4.89,30.2,15,Severe,Moderate
+Kalaburagi,2003,147.3,3.07,24.8,14,Severe,Moderate
+Kalaburagi,2004,1523.7,5.93,128.0,120,Low,Very High
+Kalaburagi,2005,2202.2,6.84,100.4,153,Low,Very High
+Kalaburagi,2006,2204.4,6.91,80.0,169,Low,High
+Kalaburagi,2007,3044.9,10.39,106.4,186,Low,Very High
+Kalaburagi,2008,2084.0,10.22,97.2,136,Low,High
+Kalaburagi,2009,2004.9,8.28,104.0,145,Low,Very High
+Kalaburagi,2010,2373.3,8.79,96.0,163,Low,High
+Kalaburagi,2011,2522.4,7.71,96.4,185,Low,High
+Kalaburagi,2012,3094.5,8.39,85.0,203,Low,High
+Kalaburagi,2013,2638.2,7.81,131.8,203,Low,Very High
+Kalaburagi,2014,2558.0,7.9,92.6,211,Low,High
+Kalaburagi,2015,2432.3,8.33,82.4,170,Low,High
+Kalaburagi,2016,4758.6,13.07,287.0,231,Low,Very High
+Kalaburagi,2017,3985.8,13.33,107.2,208,Low,Very High
+Kalaburagi,2018,2159.0,8.78,96.4,145,Low,High
+Kalaburagi,2019,2341.8,8.39,100.2,186,Low,Very High
+Kodagu,2003,588.9,6.13,41.6,50,Moderate,Moderate
+Kodagu,2004,2312.6,9.8,80.0,159,Low,High
+Kodagu,2005,1102.5,9.26,60.4,81,Low,High
+Kodagu,2006,612.8,9.43,50.2,51,Moderate,High
+Kodagu,2011,1349.5,9.71,54.0,108,Low,High
+Kodagu,2012,1219.8,11.29,77.4,90,Low,High
+Kodagu,2013,1612.3,11.6,130.0,103,Low,Very High
+Kodagu,2014,1303.5,11.14,71.2,84,Low,High
+Kodagu,2015,659.3,9.03,60.0,52,Moderate,High
+Kodagu,2016,697.2,8.3,50.0,61,Moderate,Moderate
+Kodagu,2017,893.9,7.27,49.0,77,Moderate,Moderate
+Kodagu,2018,1990.0,14.63,135.6,113,Low,Very High
+Kodagu,2019,11.2,11.2,11.2,1,Severe,Moderate
+Kolar,2015,188.8,11.11,38.2,10,Severe,Moderate
+Kolar,2020,912.9,22.82,78.0,37,Low,High
+Koppal,2000,487.0,6.01,56.0,39,Severe,High
+Koppal,2001,251.1,3.39,23.2,32,Severe,Moderate
+Koppal,2002,463.1,5.86,39.0,44,Severe,Moderate
+Koppal,2003,1157.5,7.82,57.4,86,Low,High
+Koppal,2004,1997.3,10.51,142.0,122,Low,Very High
+Koppal,2005,465.7,5.54,76.0,41,Severe,High
+Koppal,2006,163.3,3.71,16.8,23,Severe,Moderate
+Koppal,2007,486.6,7.6,51.2,33,Severe,High
+Koppal,2008,248.9,4.88,31.6,29,Severe,Moderate
+Koppal,2009,554.8,11.32,58.0,33,Moderate,High
+Koppal,2010,2265.4,10.25,76.6,155,Low,High
+Koppal,2011,1198.9,6.34,51.2,106,Low,High
+Koppal,2012,925.11,8.65,141.2,69,Low,Very High
+Koppal,2013,1093.8,7.7,77.6,72,Low,High
+Koppal,2014,1056.0,11.0,91.4,61,Low,High
+Koppal,2015,577.8,9.32,50.2,44,Moderate,High
+Koppal,2016,452.6,5.88,32.6,34,Severe,Moderate
+Koppal,2017,700.9,10.31,110.0,41,Moderate,Very High
+Mysore,2003,223.2,13.95,42.2,15,Severe,Moderate
+Mysore,2004,3803.85,17.45,504.0,151,Low,Very High
+Mysore,2005,10261.4,17.33,328.0,420,Low,Very High
+Mysore,2006,2228.6,7.82,85.0,150,Low,High
+Mysore,2007,327.2,7.79,42.4,26,Severe,Moderate
+Mysore,2010,81.9,8.19,32.8,7,Severe,Moderate
+Mysore,2011,1856.6,4.7,60.5,181,Low,High
+Mysore,2012,1772.1,5.31,87.2,150,Low,High
+Mysore,2013,1855.08,4.86,47.0,188,Low,Moderate
+Mysore,2014,1326.6,7.41,56.0,82,Low,High
+Mysore,2015,1415.1,6.0,67.2,126,Low,High
+Mysore,2016,1089.1,6.48,53.0,92,Low,High
+Mysore,2017,1103.5,3.98,42.4,103,Low,Moderate
+Mysore,2018,1337.8,5.42,43.6,138,Low,Moderate
+Mysore,2019,240.9,3.82,44.2,22,Severe,Moderate
+Raichur,2000,420.5,4.04,40.7,44,Severe,Moderate
+Raichur,2001,483.8,5.76,38.8,40,Severe,Moderate
+Raichur,2002,475.3,5.0,37.2,43,Severe,Moderate
+Raichur,2003,632.3,8.0,88.5,34,Moderate,High
+Raichur,2004,976.8,10.17,114.2,52,Low,Very High
+Raichur,2005,587.6,8.05,107.3,41,Moderate,Very High
+Raichur,2006,487.0,5.8,57.8,42,Severe,High
+Raichur,2007,710.8,7.18,112.4,56,Moderate,Very High
+Raichur,2008,470.6,5.12,45.2,38,Severe,Moderate
+Raichur,2009,576.1,7.29,107.6,42,Moderate,Very High
+Raichur,2010,3227.9,11.05,130.0,209,Low,Very High
+Raichur,2011,2194.6,8.81,55.4,177,Low,High
+Raichur,2012,2122.3,9.19,66.4,159,Low,High
+Raichur,2013,3321.1,11.9,91.4,217,Low,High
+Raichur,2014,2891.7,11.04,72.4,193,Low,High
+Raichur,2015,1984.3,11.81,144.6,130,Low,Very High
+Raichur,2016,1468.1,14.12,128.4,91,Low,Very High
+Raichur,2017,2701.4,19.43,163.5,127,Low,Very High
+Raichur,2019,49.9,6.24,23.3,3,Severe,Moderate
+Ramanagar,2000,499.8,5.95,37.0,38,Severe,Moderate
+Ramanagar,2001,1096.6,7.62,58.5,82,Low,High
+Ramanagar,2002,541.3,10.21,48.5,37,Moderate,Moderate
+Ramanagar,2004,1241.0,9.62,81.6,72,Low,High
+Ramanagar,2005,3541.9,16.1,127.0,162,Low,Very High
+Ramanagar,2006,1937.8,17.0,242.0,80,Low,Very High
+Ramanagar,2007,675.13,5.82,42.2,66,Moderate,Moderate
+Ramanagar,2008,541.2,6.37,50.0,45,Moderate,Moderate
+Ramanagar,2009,109.7,6.86,24.5,7,Severe,Moderate
+Shimoga,2003,155.8,6.77,25.0,12,Severe,Moderate
+Shimoga,2004,33.0,3.67,9.6,5,Severe,Moderate
+Shimoga,2013,2660.9,8.84,112.2,175,Low,Very High
+Shimoga,2014,5702.1,12.81,119.6,300,Low,Very High
+Shimoga,2015,3954.8,9.67,138.0,260,Low,Very High
+Shimoga,2016,2901.4,7.33,135.0,218,Low,Very High
+Shimoga,2017,3598.3,8.78,86.2,254,Low,High
+Shimoga,2018,5761.4,11.57,165.0,355,Low,Very High
+Shimoga,2019,6340.9,12.1,171.4,343,Low,Very High
+Tumkur,2000,298.1,7.45,40.0,24,Severe,Moderate
+Tumkur,2001,1873.3,10.7,105.0,121,Low,Very High
+Tumkur,2002,433.0,6.56,42.0,34,Severe,Moderate
+Tumkur,2003,185.2,5.45,27.2,20,Severe,Moderate
+Tumkur,2004,737.0,8.01,78.0,49,Moderate,High
+Tumkur,2005,3087.4,13.37,124.0,160,Low,Very High
+Tumkur,2006,832.3,9.35,73.0,55,Moderate,High
+Tumkur,2007,869.5,7.31,65.0,65,Moderate,High
+Tumkur,2008,555.1,4.55,34.5,58,Moderate,Moderate
+Tumkur,2009,234.43,3.01,19.8,29,Severe,Moderate
+Udupi,2003,1886.1,19.85,99.4,79,Low,High
+Udupi,2004,2555.6,20.61,111.2,109,Low,Very High
+Uttara Kannada,2003,722.4,7.01,177.8,55,Moderate,Very High
+Uttara Kannada,2015,512.0,10.67,54.2,33,Moderate,High
+Yadgir,1998,0.6,0.6,0.6,0,Severe,Moderate
+Yadgir,2004,488.63,6.26,48.0,48,Severe,Moderate
+Yadgir,2005,1126.6,10.63,85.5,76,Low,High
+Yadgir,2006,1261.0,11.36,79.0,72,Low,High
+Yadgir,2007,1597.1,11.57,112.0,93,Low,Very High
+Yadgir,2008,432.2,7.72,67.7,34,Severe,High
+Yadgir,2009,636.0,9.78,100.0,39,Moderate,High
+Yadgir,2010,759.4,7.1,59.4,62,Moderate,High
+Yadgir,2011,860.5,6.42,49.8,79,Moderate,Moderate
+Yadgir,2012,897.9,7.67,64.2,71,Moderate,High
+Yadgir,2013,1272.6,7.9,121.0,95,Low,Very High
+Yadgir,2014,1203.2,8.24,61.5,89,Low,High
+Yadgir,2015,752.8,6.97,57.3,67,Moderate,High
+Yadgir,2016,1585.2,7.7,80.2,119,Low,High
+Yadgir,2017,2678.2,11.64,76.8,159,Low,High
+Yadgir,2018,1493.8,8.25,84.6,118,Low,High
+Yadgir,2019,1478.3,8.96,87.6,108,Low,High

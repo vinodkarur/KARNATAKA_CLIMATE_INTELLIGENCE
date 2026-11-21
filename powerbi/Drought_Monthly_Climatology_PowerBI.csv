@@ -1,0 +1,13 @@
+Month,Mean_Daily_Rainfall_mm,Month_Name,Dry_Season_Flag
+1,0.569,Jan,True
+2,1.104,Feb,True
+3,2.396,Mar,False
+4,5.389,Apr,False
+5,7.243,May,False
+6,10.674,Jun,False
+7,10.554,Jul,False
+8,10.788,Aug,False
+9,9.682,Sep,False
+10,4.142,Oct,False
+11,0.629,Nov,True
+12,0.293,Dec,True

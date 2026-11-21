@@ -1,0 +1,22 @@
+# ==============================================================
+# REQUIREMENTS SPECIFICATION
+# AI-Driven El Niño-Aware Urban Heat Risk Prediction System for Karnataka
+# ==============================================================
+
+# Web Framework & Networking
+flask>=3.0.0
+flask-cors>=4.0.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Data Science & Machine Learning
+numpy>=1.26.0
+pandas>=2.1.0
+scikit-learn>=1.4.0
+shap>=0.45.0
+joblib>=1.3.0
+scipy>=1.11.0
+
+# Database Connectivity
+mysql-connector-python>=8.2.0
+sqlalchemy>=2.0.0

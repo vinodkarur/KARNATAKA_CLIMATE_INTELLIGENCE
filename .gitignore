@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+.venv*/
+.venv_repaired/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables, secrets & credentials
+.env
+.env.*
+!.env.example
+backend/.env
+backend/secrets/*.pem
+backend/secrets/*_private.*
+*.key
+*.pem
+*.cert
+*.pfx
+
+# Local databases & runtime caches
+*.sqlite
+*.sqlite3
+*.db
+backend/database/*.sqlite
+backend/database/*.sqlite3
+
+# Binaries, tunnels & executable downloads
+*.exe
+cloudflared.exe
+tunnel_url.txt
+
+# Oversized raw archives (>100MB; extracted map assets preserved in frontend/static/data/)
+datasets/raw/maps-master.zip
+
+# Backup files, scratch & quarantine directories
+*.bak
+quarantine_*/
+scratch/
+*.tmp
+*.temp
+
+# Logs
+*.log
+logs/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*

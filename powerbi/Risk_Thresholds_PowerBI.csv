@@ -1,0 +1,7 @@
+Metric,Threshold,Tier_Use
+Temperature_50th_Percentile,21.3225,Temperature tiers
+Temperature_75th_Percentile,23.89325,Temperature tiers
+Temperature_90th_Percentile,24.832,Temperature tiers
+Rainfall_25th_Percentile,0.006202475,Rainfall tiers
+Rainfall_75th_Percentile,7.35175,Rainfall tiers
+Rainfall_90th_Percentile,16.224699999999995,Rainfall tiers

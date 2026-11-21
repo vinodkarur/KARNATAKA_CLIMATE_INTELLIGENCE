@@ -1,0 +1,54 @@
+STEP 7: COMPLETE STATISTICAL ANALYSIS
+======================================================================
+
+DATASET INFORMATION
+Daily records: 16071
+Monthly records: 528
+Date range: 1981-01-01 00:00:00 to 2024-12-31 00:00:00
+
+ANNUAL TEMPERATURE TREND
+Slope: 0.019813 °C/year
+Per decade: 0.198133 °C
+R-squared: 0.452018
+P-value: 0.00000058
+
+ANNUAL RAINFALL TREND
+Slope: -1.757744 mm/year
+Per decade: -17.577438 mm
+R-squared: 0.020786
+P-value: 0.35046420
+
+ENSO PERIOD COMPARISON
+ENSO_Episode  Average_Temperature  Average_Max_Temperature  Average_Min_Temperature  Average_Monthly_Rainfall  Total_Months
+     El Niño            19.817931                23.427055                16.208810                137.330525           137
+     La Niña            19.669946                23.448209                15.891655                117.437217           134
+     Neutral            21.382518                24.745099                18.019931                197.347036           257
+
+SEASONALLY ADJUSTED ANOMALIES
+ENSO_Episode  Mean_Temperature_Anomaly  Mean_Rainfall_Anomaly  Total_Months
+     El Niño                 -0.101492              -0.205130           137
+     La Niña                  0.200409              -4.241253           134
+     Neutral                 -0.050391               2.320742           257
+
+STATISTICAL TESTS
+           Analysis  Kruskal_Statistic      P_Value
+    Raw Temperature          25.881686 2.398078e-06
+       Raw Rainfall          38.335204 4.738231e-09
+Temperature Anomaly          18.299226 1.062609e-04
+   Rainfall Anomaly           2.191285 3.343247e-01
+
+ONI CORRELATION RESULTS
+              Relationship  Pearson_Correlation  Pearson_P_Value  Spearman_Correlation  Spearman_P_Value
+        ONI vs Temperature            -0.031620         0.468439             -0.002002          0.963389
+           ONI vs Rainfall             0.007648         0.860819              0.057561          0.186633
+ONI vs Temperature Anomaly            -0.188764         0.000013             -0.200100          0.000004
+   ONI vs Rainfall Anomaly             0.021017         0.629921              0.038703          0.374776
+
+IMPORTANT SCIENTIFIC LIMITATIONS
+1. These results describe the supplied Karnataka dataset.
+2. Correlation does not establish causation.
+3. Monthly anomalies remove average calendar-month seasonality, but do not remove all weather or climate influences.
+4. Kruskal-Wallis and ordinary correlation p-values do not account for serial autocorrelation.
+5. Annual linear trend p-values may also be affected by temporal autocorrelation.
+6. ENSO classifications are based on the historical ONI five-overlapping-season threshold rule and do not independently verify atmospheric conditions.
+7. Centered three-month ONI values are for retrospective analysis and must not be used as future-known forecast inputs.

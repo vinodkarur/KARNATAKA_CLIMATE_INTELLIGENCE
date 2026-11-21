@@ -1,0 +1,8 @@
+Indicator,Value,Unit,Meaning
+Trailing_30d_Rainfall_P5,0.2,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P10,0.34,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P25,0.88,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P50,4.73,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P75,9.47,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P90,11.34,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"
+Trailing_30d_Rainfall_P95,12.28,mm,"30-day rainfall percentile (relative drought tiers: High <= P10, Moderate <= P25)"

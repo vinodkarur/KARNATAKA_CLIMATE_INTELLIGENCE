@@ -1,0 +1,921 @@
+Year,Month,Month_Name,ONI,Season,Condition
+1950,1,January,-1.32,DJF,La Niña
+1950,2,February,-1.2,JFM,La Niña
+1950,3,March,-1.12,FMA,La Niña
+1950,4,April,-1.08,MAM,La Niña
+1950,5,May,-1.1,AMJ,La Niña
+1950,6,June,-0.9,MJJ,La Niña
+1950,7,July,-0.62,JJA,La Niña
+1950,8,August,-0.57,JAS,La Niña
+1950,9,September,-0.56,ASO,La Niña
+1950,10,October,-0.62,SON,La Niña
+1950,11,November,-0.66,OND,La Niña
+1950,12,December,-0.79,NDJ,La Niña
+1951,1,January,-0.66,DJF,La Niña
+1951,2,February,-0.36,JFM,Neutral
+1951,3,March,-0.04,FMA,Neutral
+1951,4,April,0.16,MAM,Neutral
+1951,5,May,0.27,AMJ,Neutral
+1951,6,June,0.5,MJJ,El Niño
+1951,7,July,0.71,JJA,El Niño
+1951,8,August,0.9,JAS,El Niño
+1951,9,September,1.02,ASO,El Niño
+1951,10,October,1.03,SON,El Niño
+1951,11,November,0.96,OND,El Niño
+1951,12,December,0.71,NDJ,El Niño
+1952,1,January,0.52,DJF,El Niño
+1952,2,February,0.27,JFM,Neutral
+1952,3,March,0.33,FMA,Neutral
+1952,4,April,0.18,MAM,Neutral
+1952,5,May,-0.07,AMJ,Neutral
+1952,6,June,-0.44,MJJ,Neutral
+1952,7,July,-0.45,JJA,Neutral
+1952,8,August,-0.2,JAS,Neutral
+1952,9,September,0.03,ASO,Neutral
+1952,10,October,0.04,SON,Neutral
+1952,11,November,-0.11,OND,Neutral
+1952,12,December,0.06,NDJ,Neutral
+1953,1,January,0.25,DJF,Neutral
+1953,2,February,0.5,JFM,El Niño
+1953,3,March,0.48,FMA,Neutral
+1953,4,April,0.56,MAM,El Niño
+1953,5,May,0.77,AMJ,El Niño
+1953,6,June,0.74,MJJ,El Niño
+1953,7,July,0.63,JJA,El Niño
+1953,8,August,0.68,JAS,El Niño
+1953,9,September,0.59,ASO,El Niño
+1953,10,October,0.78,SON,El Niño
+1953,11,November,0.52,OND,El Niño
+1953,12,December,0.56,NDJ,El Niño
+1954,1,January,0.41,DJF,Neutral
+1954,2,February,0.35,JFM,Neutral
+1954,3,March,0.01,FMA,Neutral
+1954,4,April,-0.27,MAM,Neutral
+1954,5,May,-0.48,AMJ,Neutral
+1954,6,June,-0.48,MJJ,Neutral
+1954,7,July,-0.67,JJA,La Niña
+1954,8,August,-0.83,JAS,La Niña
+1954,9,September,-0.73,ASO,La Niña
+1954,10,October,-0.52,SON,La Niña
+1954,11,November,-0.4,OND,Neutral
+1954,12,December,-0.44,NDJ,Neutral
+1955,1,January,-0.5,DJF,La Niña
+1955,2,February,-0.48,JFM,Neutral
+1955,3,March,-0.58,FMA,La Niña
+1955,4,April,-0.76,MAM,La Niña
+1955,5,May,-0.78,AMJ,La Niña
+1955,6,June,-0.88,MJJ,La Niña
+1955,7,July,-0.72,JJA,La Niña
+1955,8,August,-0.92,JAS,La Niña
+1955,9,September,-1.11,ASO,La Niña
+1955,10,October,-1.44,SON,La Niña
+1955,11,November,-1.59,OND,La Niña
+1955,12,December,-1.51,NDJ,La Niña
+1956,1,January,-1.17,DJF,La Niña
+1956,2,February,-0.81,JFM,La Niña
+1956,3,March,-0.57,FMA,La Niña
+1956,4,April,-0.51,MAM,La Niña
+1956,5,May,-0.49,AMJ,Neutral
+1956,6,June,-0.47,MJJ,Neutral
+1956,7,July,-0.55,JJA,La Niña
+1956,8,August,-0.52,JAS,La Niña
+1956,9,September,-0.43,ASO,Neutral
+1956,10,October,-0.39,SON,Neutral
+1956,11,November,-0.37,OND,Neutral
+1956,12,December,-0.39,NDJ,Neutral
+1957,1,January,-0.27,DJF,Neutral
+1957,2,February,-0.06,JFM,Neutral
+1957,3,March,0.26,FMA,Neutral
+1957,4,April,0.63,MAM,El Niño
+1957,5,May,0.72,AMJ,El Niño
+1957,6,June,0.82,MJJ,El Niño
+1957,7,July,0.96,JJA,El Niño
+1957,8,August,1.03,JAS,El Niño
+1957,9,September,1.12,ASO,El Niño
+1957,10,October,1.15,SON,El Niño
+1957,11,November,1.39,OND,El Niño
+1957,12,December,1.62,NDJ,El Niño
+1958,1,January,1.69,DJF,El Niño
+1958,2,February,1.59,JFM,El Niño
+1958,3,March,1.17,FMA,El Niño
+1958,4,April,0.84,MAM,El Niño
+1958,5,May,0.57,AMJ,El Niño
+1958,6,June,0.49,MJJ,Neutral
+1958,7,July,0.43,JJA,Neutral
+1958,8,August,0.32,JAS,Neutral
+1958,9,September,0.28,ASO,Neutral
+1958,10,October,0.3,SON,Neutral
+1958,11,November,0.36,OND,Neutral
+1958,12,December,0.56,NDJ,El Niño
+1959,1,January,0.6,DJF,El Niño
+1959,2,February,0.64,JFM,El Niño
+1959,3,March,0.48,FMA,Neutral
+1959,4,April,0.39,MAM,Neutral
+1959,5,May,0.24,AMJ,Neutral
+1959,6,June,0.02,MJJ,Neutral
+1959,7,July,-0.19,JJA,Neutral
+1959,8,August,-0.23,JAS,Neutral
+1959,9,September,-0.04,ASO,Neutral
+1959,10,October,0.11,SON,Neutral
+1959,11,November,0.23,OND,Neutral
+1959,12,December,0.14,NDJ,Neutral
+1960,1,January,0.02,DJF,Neutral
+1960,2,February,0.03,JFM,Neutral
+1960,3,March,0.06,FMA,Neutral
+1960,4,April,0.17,MAM,Neutral
+1960,5,May,0.04,AMJ,Neutral
+1960,6,June,0.0,MJJ,Neutral
+1960,7,July,0.01,JJA,Neutral
+1960,8,August,0.15,JAS,Neutral
+1960,9,September,0.19,ASO,Neutral
+1960,10,October,0.08,SON,Neutral
+1960,11,November,-0.07,OND,Neutral
+1960,12,December,-0.07,NDJ,Neutral
+1961,1,January,0.0,DJF,Neutral
+1961,2,February,0.03,JFM,Neutral
+1961,3,March,0.01,FMA,Neutral
+1961,4,April,0.05,MAM,Neutral
+1961,5,May,0.22,AMJ,Neutral
+1961,6,June,0.22,MJJ,Neutral
+1961,7,July,0.08,JJA,Neutral
+1961,8,August,-0.2,JAS,Neutral
+1961,9,September,-0.32,ASO,Neutral
+1961,10,October,-0.22,SON,Neutral
+1961,11,November,-0.11,OND,Neutral
+1961,12,December,-0.05,NDJ,Neutral
+1962,1,January,-0.16,DJF,Neutral
+1962,2,February,-0.17,JFM,Neutral
+1962,3,March,-0.15,FMA,Neutral
+1962,4,April,-0.2,MAM,Neutral
+1962,5,May,-0.19,AMJ,Neutral
+1962,6,June,-0.13,MJJ,Neutral
+1962,7,July,0.0,JJA,Neutral
+1962,8,August,-0.1,JAS,Neutral
+1962,9,September,-0.16,ASO,Neutral
+1962,10,October,-0.25,SON,Neutral
+1962,11,November,-0.25,OND,Neutral
+1962,12,December,-0.32,NDJ,Neutral
+1963,1,January,-0.33,DJF,Neutral
+1963,2,February,-0.17,JFM,Neutral
+1963,3,March,0.01,FMA,Neutral
+1963,4,April,0.13,MAM,Neutral
+1963,5,May,0.12,AMJ,Neutral
+1963,6,June,0.45,MJJ,Neutral
+1963,7,July,0.76,JJA,El Niño
+1963,8,August,1.09,JAS,El Niño
+1963,9,September,1.09,ASO,El Niño
+1963,10,October,1.13,SON,El Niño
+1963,11,November,1.19,OND,El Niño
+1963,12,December,1.13,NDJ,El Niño
+1964,1,January,0.95,DJF,El Niño
+1964,2,February,0.52,JFM,El Niño
+1964,3,March,0.06,FMA,Neutral
+1964,4,April,-0.35,MAM,Neutral
+1964,5,May,-0.6,AMJ,La Niña
+1964,6,June,-0.66,MJJ,La Niña
+1964,7,July,-0.67,JJA,La Niña
+1964,8,August,-0.7,JAS,La Niña
+1964,9,September,-0.72,ASO,La Niña
+1964,10,October,-0.8,SON,La Niña
+1964,11,November,-0.79,OND,La Niña
+1964,12,December,-0.75,NDJ,La Niña
+1965,1,January,-0.51,DJF,La Niña
+1965,2,February,-0.25,JFM,Neutral
+1965,3,March,-0.04,FMA,Neutral
+1965,4,April,0.16,MAM,Neutral
+1965,5,May,0.47,AMJ,Neutral
+1965,6,June,0.79,MJJ,El Niño
+1965,7,July,1.1,JJA,El Niño
+1965,8,August,1.27,JAS,El Niño
+1965,9,September,1.55,ASO,El Niño
+1965,10,October,1.7,SON,El Niño
+1965,11,November,1.82,OND,El Niño
+1965,12,December,1.6,NDJ,El Niño
+1966,1,January,1.24,DJF,El Niño
+1966,2,February,0.95,JFM,El Niño
+1966,3,March,0.76,FMA,El Niño
+1966,4,April,0.43,MAM,Neutral
+1966,5,May,0.24,AMJ,Neutral
+1966,6,June,0.18,MJJ,Neutral
+1966,7,July,0.25,JJA,Neutral
+1966,8,August,0.13,JAS,Neutral
+1966,9,September,-0.09,ASO,Neutral
+1966,10,October,-0.12,SON,Neutral
+1966,11,November,-0.23,OND,Neutral
+1966,12,December,-0.35,NDJ,Neutral
+1967,1,January,-0.46,DJF,Neutral
+1967,2,February,-0.48,JFM,Neutral
+1967,3,March,-0.5,FMA,La Niña
+1967,4,April,-0.37,MAM,Neutral
+1967,5,May,-0.15,AMJ,Neutral
+1967,6,June,0.05,MJJ,Neutral
+1967,7,July,-0.02,JJA,Neutral
+1967,8,August,-0.26,JAS,Neutral
+1967,9,September,-0.4,ASO,Neutral
+1967,10,October,-0.4,SON,Neutral
+1967,11,November,-0.36,OND,Neutral
+1967,12,December,-0.42,NDJ,Neutral
+1968,1,January,-0.62,DJF,La Niña
+1968,2,February,-0.73,JFM,La Niña
+1968,3,March,-0.63,FMA,La Niña
+1968,4,April,-0.48,MAM,Neutral
+1968,5,May,-0.1,AMJ,Neutral
+1968,6,June,0.17,MJJ,Neutral
+1968,7,July,0.44,JJA,Neutral
+1968,8,August,0.38,JAS,Neutral
+1968,9,September,0.34,ASO,Neutral
+1968,10,October,0.5,SON,El Niño
+1968,11,November,0.66,OND,El Niño
+1968,12,December,0.93,NDJ,El Niño
+1969,1,January,0.98,DJF,El Niño
+1969,2,February,0.98,JFM,El Niño
+1969,3,March,0.77,FMA,El Niño
+1969,4,April,0.69,MAM,El Niño
+1969,5,May,0.62,AMJ,El Niño
+1969,6,June,0.48,MJJ,Neutral
+1969,7,July,0.37,JJA,Neutral
+1969,8,August,0.41,JAS,Neutral
+1969,9,September,0.61,ASO,El Niño
+1969,10,October,0.71,SON,El Niño
+1969,11,November,0.81,OND,El Niño
+1969,12,December,0.71,NDJ,El Niño
+1970,1,January,0.46,DJF,Neutral
+1970,2,February,0.23,JFM,Neutral
+1970,3,March,0.23,FMA,Neutral
+1970,4,April,0.28,MAM,Neutral
+1970,5,May,0.11,AMJ,Neutral
+1970,6,June,-0.26,MJJ,Neutral
+1970,7,July,-0.55,JJA,La Niña
+1970,8,August,-0.72,JAS,La Niña
+1970,9,September,-0.69,ASO,La Niña
+1970,10,October,-0.72,SON,La Niña
+1970,11,November,-0.78,OND,La Niña
+1970,12,December,-1.1,NDJ,La Niña
+1971,1,January,-1.29,DJF,La Niña
+1971,2,February,-1.36,JFM,La Niña
+1971,3,March,-1.08,FMA,La Niña
+1971,4,April,-0.81,MAM,La Niña
+1971,5,May,-0.72,AMJ,La Niña
+1971,6,June,-0.69,MJJ,La Niña
+1971,7,July,-0.68,JJA,La Niña
+1971,8,August,-0.6,JAS,La Niña
+1971,9,September,-0.68,ASO,La Niña
+1971,10,October,-0.78,SON,La Niña
+1971,11,November,-0.86,OND,La Niña
+1971,12,December,-0.78,NDJ,La Niña
+1972,1,January,-0.57,DJF,La Niña
+1972,2,February,-0.27,JFM,Neutral
+1972,3,March,0.04,FMA,Neutral
+1972,4,April,0.25,MAM,Neutral
+1972,5,May,0.48,AMJ,Neutral
+1972,6,June,0.7,MJJ,El Niño
+1972,7,July,1.0,JJA,El Niño
+1972,8,August,1.26,JAS,El Niño
+1972,9,September,1.49,ASO,El Niño
+1972,10,October,1.69,SON,El Niño
+1972,11,November,1.84,OND,El Niño
+1972,12,December,1.77,NDJ,El Niño
+1973,1,January,1.55,DJF,El Niño
+1973,2,February,1.13,JFM,El Niño
+1973,3,March,0.56,FMA,El Niño
+1973,4,April,-0.03,MAM,Neutral
+1973,5,May,-0.51,AMJ,La Niña
+1973,6,June,-0.8,MJJ,La Niña
+1973,7,July,-0.99,JJA,La Niña
+1973,8,August,-1.11,JAS,La Niña
+1973,9,September,-1.26,ASO,La Niña
+1973,10,October,-1.58,SON,La Niña
+1973,11,November,-1.89,OND,La Niña
+1973,12,December,-2.04,NDJ,La Niña
+1974,1,January,-1.87,DJF,La Niña
+1974,2,February,-1.59,JFM,La Niña
+1974,3,March,-1.24,FMA,La Niña
+1974,4,April,-0.99,MAM,La Niña
+1974,5,May,-0.71,AMJ,La Niña
+1974,6,June,-0.64,MJJ,La Niña
+1974,7,July,-0.46,JJA,Neutral
+1974,8,August,-0.4,JAS,Neutral
+1974,9,September,-0.47,ASO,Neutral
+1974,10,October,-0.69,SON,La Niña
+1974,11,November,-0.88,OND,La Niña
+1974,12,December,-0.71,NDJ,La Niña
+1975,1,January,-0.56,DJF,La Niña
+1975,2,February,-0.55,JFM,La Niña
+1975,3,March,-0.61,FMA,La Niña
+1975,4,April,-0.66,MAM,La Niña
+1975,5,May,-0.8,AMJ,La Niña
+1975,6,June,-0.92,MJJ,La Niña
+1975,7,July,-1.08,JJA,La Niña
+1975,8,August,-1.12,JAS,La Niña
+1975,9,September,-1.29,ASO,La Niña
+1975,10,October,-1.32,SON,La Niña
+1975,11,November,-1.47,OND,La Niña
+1975,12,December,-1.58,NDJ,La Niña
+1976,1,January,-1.49,DJF,La Niña
+1976,2,February,-1.11,JFM,La Niña
+1976,3,March,-0.65,FMA,La Niña
+1976,4,April,-0.45,MAM,Neutral
+1976,5,May,-0.23,AMJ,Neutral
+1976,6,June,0.0,MJJ,Neutral
+1976,7,July,0.23,JJA,Neutral
+1976,8,August,0.4,JAS,Neutral
+1976,9,September,0.6,ASO,El Niño
+1976,10,October,0.79,SON,El Niño
+1976,11,November,0.81,OND,El Niño
+1976,12,December,0.84,NDJ,El Niño
+1977,1,January,0.71,DJF,El Niño
+1977,2,February,0.66,JFM,El Niño
+1977,3,March,0.33,FMA,Neutral
+1977,4,April,0.26,MAM,Neutral
+1977,5,May,0.26,AMJ,Neutral
+1977,6,June,0.46,MJJ,Neutral
+1977,7,July,0.39,JJA,Neutral
+1977,8,August,0.35,JAS,Neutral
+1977,9,September,0.45,ASO,Neutral
+1977,10,October,0.68,SON,El Niño
+1977,11,November,0.84,OND,El Niño
+1977,12,December,0.82,NDJ,El Niño
+1978,1,January,0.71,DJF,El Niño
+1978,2,February,0.52,JFM,El Niño
+1978,3,March,0.17,FMA,Neutral
+1978,4,April,-0.06,MAM,Neutral
+1978,5,May,-0.28,AMJ,Neutral
+1978,6,June,-0.24,MJJ,Neutral
+1978,7,July,-0.37,JJA,Neutral
+1978,8,August,-0.37,JAS,Neutral
+1978,9,September,-0.44,ASO,Neutral
+1978,10,October,-0.27,SON,Neutral
+1978,11,November,-0.07,OND,Neutral
+1978,12,December,0.11,NDJ,Neutral
+1979,1,January,0.19,DJF,Neutral
+1979,2,February,0.21,JFM,Neutral
+1979,3,March,0.29,FMA,Neutral
+1979,4,April,0.32,MAM,Neutral
+1979,5,May,0.29,AMJ,Neutral
+1979,6,June,0.14,MJJ,Neutral
+1979,7,July,0.09,JJA,Neutral
+1979,8,August,0.22,JAS,Neutral
+1979,9,September,0.34,ASO,Neutral
+1979,10,October,0.47,SON,Neutral
+1979,11,November,0.5,OND,El Niño
+1979,12,December,0.64,NDJ,El Niño
+1980,1,January,0.62,DJF,El Niño
+1980,2,February,0.47,JFM,Neutral
+1980,3,March,0.35,FMA,Neutral
+1980,4,April,0.34,MAM,Neutral
+1980,5,May,0.45,AMJ,Neutral
+1980,6,June,0.4,MJJ,Neutral
+1980,7,July,0.18,JJA,Neutral
+1980,8,August,-0.06,JAS,Neutral
+1980,9,September,-0.17,ASO,Neutral
+1980,10,October,-0.07,SON,Neutral
+1980,11,November,0.08,OND,Neutral
+1980,12,December,-0.05,NDJ,Neutral
+1981,1,January,-0.27,DJF,Neutral
+1981,2,February,-0.42,JFM,Neutral
+1981,3,March,-0.41,FMA,Neutral
+1981,4,April,-0.27,MAM,Neutral
+1981,5,May,-0.28,AMJ,Neutral
+1981,6,June,-0.27,MJJ,Neutral
+1981,7,July,-0.28,JJA,Neutral
+1981,8,August,-0.23,JAS,Neutral
+1981,9,September,-0.08,ASO,Neutral
+1981,10,October,-0.16,SON,Neutral
+1981,11,November,-0.19,OND,Neutral
+1981,12,December,-0.14,NDJ,Neutral
+1982,1,January,-0.05,DJF,Neutral
+1982,2,February,0.02,JFM,Neutral
+1982,3,March,0.07,FMA,Neutral
+1982,4,April,0.34,MAM,Neutral
+1982,5,May,0.65,AMJ,El Niño
+1982,6,June,0.73,MJJ,El Niño
+1982,7,July,0.78,JJA,El Niño
+1982,8,August,0.99,JAS,El Niño
+1982,9,September,1.45,ASO,El Niño
+1982,10,October,1.82,SON,El Niño
+1982,11,November,2.03,OND,El Niño
+1982,12,December,2.12,NDJ,El Niño
+1983,1,January,2.14,DJF,El Niño
+1983,2,February,1.91,JFM,El Niño
+1983,3,March,1.52,FMA,El Niño
+1983,4,April,1.23,MAM,El Niño
+1983,5,May,0.95,AMJ,El Niño
+1983,6,June,0.62,MJJ,El Niño
+1983,7,July,0.25,JJA,Neutral
+1983,8,August,-0.06,JAS,Neutral
+1983,9,September,-0.43,ASO,Neutral
+1983,10,October,-0.76,SON,La Niña
+1983,11,November,-0.96,OND,La Niña
+1983,12,December,-0.89,NDJ,La Niña
+1984,1,January,-0.63,DJF,La Niña
+1984,2,February,-0.51,JFM,La Niña
+1984,3,March,-0.38,FMA,Neutral
+1984,4,April,-0.47,MAM,Neutral
+1984,5,May,-0.55,AMJ,La Niña
+1984,6,June,-0.52,MJJ,La Niña
+1984,7,July,-0.39,JJA,Neutral
+1984,8,August,-0.22,JAS,Neutral
+1984,9,September,-0.32,ASO,Neutral
+1984,10,October,-0.62,SON,La Niña
+1984,11,November,-0.95,OND,La Niña
+1984,12,December,-1.06,NDJ,La Niña
+1985,1,January,-1.01,DJF,La Niña
+1985,2,February,-0.86,JFM,La Niña
+1985,3,March,-0.85,FMA,La Niña
+1985,4,April,-0.8,MAM,La Niña
+1985,5,May,-0.79,AMJ,La Niña
+1985,6,June,-0.6,MJJ,La Niña
+1985,7,July,-0.44,JJA,Neutral
+1985,8,August,-0.33,JAS,Neutral
+1985,9,September,-0.31,ASO,Neutral
+1985,10,October,-0.3,SON,Neutral
+1985,11,November,-0.28,OND,Neutral
+1985,12,December,-0.36,NDJ,Neutral
+1986,1,January,-0.4,DJF,Neutral
+1986,2,February,-0.38,JFM,Neutral
+1986,3,March,-0.25,FMA,Neutral
+1986,4,April,-0.17,MAM,Neutral
+1986,5,May,-0.09,AMJ,Neutral
+1986,6,June,0.02,MJJ,Neutral
+1986,7,July,0.24,JJA,Neutral
+1986,8,August,0.46,JAS,Neutral
+1986,9,September,0.64,ASO,El Niño
+1986,10,October,0.86,SON,El Niño
+1986,11,November,1.06,OND,El Niño
+1986,12,December,1.21,NDJ,El Niño
+1987,1,January,1.18,DJF,El Niño
+1987,2,February,1.13,JFM,El Niño
+1987,3,March,1.02,FMA,El Niño
+1987,4,April,0.94,MAM,El Niño
+1987,5,May,0.95,AMJ,El Niño
+1987,6,June,1.11,MJJ,El Niño
+1987,7,July,1.3,JJA,El Niño
+1987,8,August,1.46,JAS,El Niño
+1987,9,September,1.49,ASO,El Niño
+1987,10,October,1.41,SON,El Niño
+1987,11,November,1.2,OND,El Niño
+1987,12,December,1.0,NDJ,El Niño
+1988,1,January,0.63,DJF,El Niño
+1988,2,February,0.37,JFM,Neutral
+1988,3,March,-0.03,FMA,Neutral
+1988,4,April,-0.45,MAM,Neutral
+1988,5,May,-0.99,AMJ,La Niña
+1988,6,June,-1.3,MJJ,La Niña
+1988,7,July,-1.3,JJA,La Niña
+1988,8,August,-1.14,JAS,La Niña
+1988,9,September,-1.27,ASO,La Niña
+1988,10,October,-1.54,SON,La Niña
+1988,11,November,-1.81,OND,La Niña
+1988,12,December,-1.85,NDJ,La Niña
+1989,1,January,-1.64,DJF,La Niña
+1989,2,February,-1.38,JFM,La Niña
+1989,3,March,-1.09,FMA,La Niña
+1989,4,April,-0.85,MAM,La Niña
+1989,5,May,-0.61,AMJ,La Niña
+1989,6,June,-0.4,MJJ,Neutral
+1989,7,July,-0.37,JJA,Neutral
+1989,8,August,-0.36,JAS,Neutral
+1989,9,September,-0.33,ASO,Neutral
+1989,10,October,-0.25,SON,Neutral
+1989,11,November,-0.12,OND,Neutral
+1989,12,December,-0.04,NDJ,Neutral
+1990,1,January,0.18,DJF,Neutral
+1990,2,February,0.19,JFM,Neutral
+1990,3,March,0.3,FMA,Neutral
+1990,4,April,0.27,MAM,Neutral
+1990,5,May,0.25,AMJ,Neutral
+1990,6,June,0.25,MJJ,Neutral
+1990,7,July,0.26,JJA,Neutral
+1990,8,August,0.32,JAS,Neutral
+1990,9,September,0.31,ASO,Neutral
+1990,10,October,0.27,SON,Neutral
+1990,11,November,0.31,OND,Neutral
+1990,12,December,0.34,NDJ,Neutral
+1991,1,January,0.35,DJF,Neutral
+1991,2,February,0.26,JFM,Neutral
+1991,3,March,0.23,FMA,Neutral
+1991,4,April,0.29,MAM,Neutral
+1991,5,May,0.49,AMJ,Neutral
+1991,6,June,0.63,MJJ,El Niño
+1991,7,July,0.77,JJA,El Niño
+1991,8,August,0.67,JAS,El Niño
+1991,9,September,0.72,ASO,El Niño
+1991,10,October,0.83,SON,El Niño
+1991,11,November,1.18,OND,El Niño
+1991,12,December,1.43,NDJ,El Niño
+1992,1,January,1.54,DJF,El Niño
+1992,2,February,1.5,JFM,El Niño
+1992,3,March,1.4,FMA,El Niño
+1992,4,April,1.3,MAM,El Niño
+1992,5,May,1.08,AMJ,El Niño
+1992,6,June,0.72,MJJ,El Niño
+1992,7,July,0.35,JJA,Neutral
+1992,8,August,0.08,JAS,Neutral
+1992,9,September,-0.15,ASO,Neutral
+1992,10,October,-0.22,SON,Neutral
+1992,11,November,-0.24,OND,Neutral
+1992,12,December,-0.05,NDJ,Neutral
+1993,1,January,0.13,DJF,Neutral
+1993,2,February,0.31,JFM,Neutral
+1993,3,March,0.5,FMA,El Niño
+1993,4,April,0.73,MAM,El Niño
+1993,5,May,0.76,AMJ,El Niño
+1993,6,June,0.56,MJJ,El Niño
+1993,7,July,0.28,JJA,Neutral
+1993,8,August,0.22,JAS,Neutral
+1993,9,September,0.2,ASO,Neutral
+1993,10,October,0.2,SON,Neutral
+1993,11,November,0.2,OND,Neutral
+1993,12,December,0.19,NDJ,Neutral
+1994,1,January,0.07,DJF,Neutral
+1994,2,February,0.0,JFM,Neutral
+1994,3,March,0.04,FMA,Neutral
+1994,4,April,0.17,MAM,Neutral
+1994,5,May,0.25,AMJ,Neutral
+1994,6,June,0.23,MJJ,Neutral
+1994,7,July,0.3,JJA,Neutral
+1994,8,August,0.3,JAS,Neutral
+1994,9,September,0.47,ASO,Neutral
+1994,10,October,0.66,SON,El Niño
+1994,11,November,0.93,OND,El Niño
+1994,12,December,0.97,NDJ,El Niño
+1995,1,January,0.88,DJF,El Niño
+1995,2,February,0.65,JFM,El Niño
+1995,3,March,0.46,FMA,Neutral
+1995,4,April,0.19,MAM,Neutral
+1995,5,May,0.03,AMJ,Neutral
+1995,6,June,-0.11,MJJ,Neutral
+1995,7,July,-0.3,JJA,Neutral
+1995,8,August,-0.55,JAS,La Niña
+1995,9,September,-0.81,ASO,La Niña
+1995,10,October,-0.97,SON,La Niña
+1995,11,November,-1.05,OND,La Niña
+1995,12,December,-1.01,NDJ,La Niña
+1996,1,January,-0.88,DJF,La Niña
+1996,2,February,-0.7,JFM,La Niña
+1996,3,March,-0.52,FMA,La Niña
+1996,4,April,-0.36,MAM,Neutral
+1996,5,May,-0.25,AMJ,Neutral
+1996,6,June,-0.24,MJJ,Neutral
+1996,7,July,-0.22,JJA,Neutral
+1996,8,August,-0.27,JAS,Neutral
+1996,9,September,-0.3,ASO,Neutral
+1996,10,October,-0.33,SON,Neutral
+1996,11,November,-0.39,OND,Neutral
+1996,12,December,-0.41,NDJ,Neutral
+1997,1,January,-0.41,DJF,Neutral
+1997,2,February,-0.26,JFM,Neutral
+1997,3,March,-0.03,FMA,Neutral
+1997,4,April,0.3,MAM,Neutral
+1997,5,May,0.71,AMJ,El Niño
+1997,6,June,1.13,MJJ,El Niño
+1997,7,July,1.48,JJA,El Niño
+1997,8,August,1.79,JAS,El Niño
+1997,9,September,2.04,ASO,El Niño
+1997,10,October,2.24,SON,El Niño
+1997,11,November,2.34,OND,El Niño
+1997,12,December,2.37,NDJ,El Niño
+1998,1,January,2.22,DJF,El Niño
+1998,2,February,1.91,JFM,El Niño
+1998,3,March,1.4,FMA,El Niño
+1998,4,April,1.03,MAM,El Niño
+1998,5,May,0.4,AMJ,Neutral
+1998,6,June,-0.08,MJJ,Neutral
+1998,7,July,-0.63,JJA,La Niña
+1998,8,August,-0.83,JAS,La Niña
+1998,9,September,-1.02,ASO,La Niña
+1998,10,October,-1.12,SON,La Niña
+1998,11,November,-1.31,OND,La Niña
+1998,12,December,-1.47,NDJ,La Niña
+1999,1,January,-1.51,DJF,La Niña
+1999,2,February,-1.25,JFM,La Niña
+1999,3,March,-0.93,FMA,La Niña
+1999,4,April,-0.8,MAM,La Niña
+1999,5,May,-0.79,AMJ,La Niña
+1999,6,June,-0.84,MJJ,La Niña
+1999,7,July,-0.9,JJA,La Niña
+1999,8,August,-0.94,JAS,La Niña
+1999,9,September,-1.0,ASO,La Niña
+1999,10,October,-1.13,SON,La Niña
+1999,11,November,-1.35,OND,La Niña
+1999,12,December,-1.53,NDJ,La Niña
+2000,1,January,-1.47,DJF,La Niña
+2000,2,February,-1.26,JFM,La Niña
+2000,3,March,-0.98,FMA,La Niña
+2000,4,April,-0.81,MAM,La Niña
+2000,5,May,-0.67,AMJ,La Niña
+2000,6,June,-0.62,MJJ,La Niña
+2000,7,July,-0.48,JJA,Neutral
+2000,8,August,-0.4,JAS,Neutral
+2000,9,September,-0.42,ASO,Neutral
+2000,10,October,-0.54,SON,La Niña
+2000,11,November,-0.76,OND,La Niña
+2000,12,December,-0.78,NDJ,La Niña
+2001,1,January,-0.76,DJF,La Niña
+2001,2,February,-0.54,JFM,La Niña
+2001,3,March,-0.43,FMA,Neutral
+2001,4,April,-0.29,MAM,Neutral
+2001,5,May,-0.19,AMJ,Neutral
+2001,6,June,-0.08,MJJ,Neutral
+2001,7,July,-0.05,JJA,Neutral
+2001,8,August,-0.13,JAS,Neutral
+2001,9,September,-0.15,ASO,Neutral
+2001,10,October,-0.26,SON,Neutral
+2001,11,November,-0.33,OND,Neutral
+2001,12,December,-0.32,NDJ,Neutral
+2002,1,January,-0.15,DJF,Neutral
+2002,2,February,0.07,JFM,Neutral
+2002,3,March,0.11,FMA,Neutral
+2002,4,April,0.15,MAM,Neutral
+2002,5,May,0.3,AMJ,Neutral
+2002,6,June,0.45,MJJ,Neutral
+2002,7,July,0.57,JJA,El Niño
+2002,8,August,0.63,JAS,El Niño
+2002,9,September,0.78,ASO,El Niño
+2002,10,October,0.99,SON,El Niño
+2002,11,November,1.19,OND,El Niño
+2002,12,December,1.08,NDJ,El Niño
+2003,1,January,0.9,DJF,El Niño
+2003,2,February,0.59,JFM,El Niño
+2003,3,March,0.38,FMA,Neutral
+2003,4,April,-0.01,MAM,Neutral
+2003,5,May,-0.18,AMJ,Neutral
+2003,6,June,-0.13,MJJ,Neutral
+2003,7,July,0.09,JJA,Neutral
+2003,8,August,0.14,JAS,Neutral
+2003,9,September,0.23,ASO,Neutral
+2003,10,October,0.23,SON,Neutral
+2003,11,November,0.29,OND,Neutral
+2003,12,December,0.29,NDJ,Neutral
+2004,1,January,0.34,DJF,Neutral
+2004,2,February,0.27,JFM,Neutral
+2004,3,March,0.19,FMA,Neutral
+2004,4,April,0.1,MAM,Neutral
+2004,5,May,0.12,AMJ,Neutral
+2004,6,June,0.22,MJJ,Neutral
+2004,7,July,0.39,JJA,Neutral
+2004,8,August,0.54,JAS,El Niño
+2004,9,September,0.58,ASO,El Niño
+2004,10,October,0.61,SON,El Niño
+2004,11,November,0.64,OND,El Niño
+2004,12,December,0.71,NDJ,El Niño
+2005,1,January,0.62,DJF,El Niño
+2005,2,February,0.55,JFM,El Niño
+2005,3,March,0.4,FMA,Neutral
+2005,4,April,0.37,MAM,Neutral
+2005,5,May,0.27,AMJ,Neutral
+2005,6,June,0.09,MJJ,Neutral
+2005,7,July,-0.04,JJA,Neutral
+2005,8,August,-0.14,JAS,Neutral
+2005,9,September,-0.11,ASO,Neutral
+2005,10,October,-0.27,SON,Neutral
+2005,11,November,-0.57,OND,La Niña
+2005,12,December,-0.82,NDJ,La Niña
+2006,1,January,-0.86,DJF,La Niña
+2006,2,February,-0.8,JFM,La Niña
+2006,3,March,-0.63,FMA,La Niña
+2006,4,April,-0.45,MAM,Neutral
+2006,5,May,-0.19,AMJ,Neutral
+2006,6,June,-0.05,MJJ,Neutral
+2006,7,July,0.12,JJA,Neutral
+2006,8,August,0.33,JAS,Neutral
+2006,9,September,0.54,ASO,El Niño
+2006,10,October,0.71,SON,El Niño
+2006,11,November,0.88,OND,El Niño
+2006,12,December,0.88,NDJ,El Niño
+2007,1,January,0.62,DJF,El Niño
+2007,2,February,0.19,JFM,Neutral
+2007,3,March,-0.12,FMA,Neutral
+2007,4,April,-0.32,MAM,Neutral
+2007,5,May,-0.34,AMJ,Neutral
+2007,6,June,-0.41,MJJ,Neutral
+2007,7,July,-0.49,JJA,Neutral
+2007,8,August,-0.77,JAS,La Niña
+2007,9,September,-1.05,ASO,La Niña
+2007,10,October,-1.38,SON,La Niña
+2007,11,November,-1.57,OND,La Niña
+2007,12,December,-1.72,NDJ,La Niña
+2008,1,January,-1.76,DJF,La Niña
+2008,2,February,-1.61,JFM,La Niña
+2008,3,March,-1.37,FMA,La Niña
+2008,4,April,-1.05,MAM,La Niña
+2008,5,May,-0.85,AMJ,La Niña
+2008,6,June,-0.56,MJJ,La Niña
+2008,7,July,-0.33,JJA,Neutral
+2008,8,August,-0.2,JAS,Neutral
+2008,9,September,-0.25,ASO,Neutral
+2008,10,October,-0.36,SON,Neutral
+2008,11,November,-0.57,OND,La Niña
+2008,12,December,-0.79,NDJ,La Niña
+2009,1,January,-0.89,DJF,La Niña
+2009,2,February,-0.84,JFM,La Niña
+2009,3,March,-0.63,FMA,La Niña
+2009,4,April,-0.35,MAM,Neutral
+2009,5,May,0.03,AMJ,Neutral
+2009,6,June,0.34,MJJ,Neutral
+2009,7,July,0.5,JJA,El Niño
+2009,8,August,0.56,JAS,El Niño
+2009,9,September,0.66,ASO,El Niño
+2009,10,October,0.92,SON,El Niño
+2009,11,November,1.31,OND,El Niño
+2009,12,December,1.5,NDJ,El Niño
+2010,1,January,1.47,DJF,El Niño
+2010,2,February,1.21,JFM,El Niño
+2010,3,March,0.88,FMA,El Niño
+2010,4,April,0.38,MAM,Neutral
+2010,5,May,-0.16,AMJ,Neutral
+2010,6,June,-0.66,MJJ,La Niña
+2010,7,July,-0.98,JJA,La Niña
+2010,8,August,-1.24,JAS,La Niña
+2010,9,September,-1.43,ASO,La Niña
+2010,10,October,-1.54,SON,La Niña
+2010,11,November,-1.57,OND,La Niña
+2010,12,December,-1.48,NDJ,La Niña
+2011,1,January,-1.29,DJF,La Niña
+2011,2,February,-1.06,JFM,La Niña
+2011,3,March,-0.85,FMA,La Niña
+2011,4,April,-0.68,MAM,La Niña
+2011,5,May,-0.5,AMJ,La Niña
+2011,6,June,-0.34,MJJ,Neutral
+2011,7,July,-0.37,JJA,Neutral
+2011,8,August,-0.5,JAS,La Niña
+2011,9,September,-0.76,ASO,La Niña
+2011,10,October,-0.94,SON,La Niña
+2011,11,November,-1.02,OND,La Niña
+2011,12,December,-0.92,NDJ,La Niña
+2012,1,January,-0.71,DJF,La Niña
+2012,2,February,-0.56,JFM,La Niña
+2012,3,March,-0.44,FMA,Neutral
+2012,4,April,-0.35,MAM,Neutral
+2012,5,May,-0.18,AMJ,Neutral
+2012,6,June,0.03,MJJ,Neutral
+2012,7,July,0.28,JJA,Neutral
+2012,8,August,0.39,JAS,Neutral
+2012,9,September,0.37,ASO,Neutral
+2012,10,October,0.28,SON,Neutral
+2012,11,November,0.13,OND,Neutral
+2012,12,December,-0.03,NDJ,Neutral
+2013,1,January,-0.24,DJF,Neutral
+2013,2,February,-0.28,JFM,Neutral
+2013,3,March,-0.23,FMA,Neutral
+2013,4,April,-0.2,MAM,Neutral
+2013,5,May,-0.3,AMJ,Neutral
+2013,6,June,-0.38,MJJ,Neutral
+2013,7,July,-0.45,JJA,Neutral
+2013,8,August,-0.34,JAS,Neutral
+2013,9,September,-0.32,ASO,Neutral
+2013,10,October,-0.14,SON,Neutral
+2013,11,November,-0.12,OND,Neutral
+2013,12,December,-0.11,NDJ,Neutral
+2014,1,January,-0.24,DJF,Neutral
+2014,2,February,-0.21,JFM,Neutral
+2014,3,March,-0.02,FMA,Neutral
+2014,4,April,0.25,MAM,Neutral
+2014,5,May,0.35,AMJ,Neutral
+2014,6,June,0.22,MJJ,Neutral
+2014,7,July,0.07,JJA,Neutral
+2014,8,August,0.07,JAS,Neutral
+2014,9,September,0.24,ASO,Neutral
+2014,10,October,0.51,SON,El Niño
+2014,11,November,0.7,OND,El Niño
+2014,12,December,0.8,NDJ,El Niño
+2015,1,January,0.73,DJF,El Niño
+2015,2,February,0.65,JFM,El Niño
+2015,3,March,0.72,FMA,El Niño
+2015,4,April,0.86,MAM,El Niño
+2015,5,May,1.04,AMJ,El Niño
+2015,6,June,1.19,MJJ,El Niño
+2015,7,July,1.44,JJA,El Niño
+2015,8,August,1.73,JAS,El Niño
+2015,9,September,2.02,ASO,El Niño
+2015,10,October,2.28,SON,El Niño
+2015,11,November,2.45,OND,El Niño
+2015,12,December,2.59,NDJ,El Niño
+2016,1,January,2.5,DJF,El Niño
+2016,2,February,2.21,JFM,El Niño
+2016,3,March,1.69,FMA,El Niño
+2016,4,April,1.11,MAM,El Niño
+2016,5,May,0.57,AMJ,El Niño
+2016,6,June,0.09,MJJ,Neutral
+2016,7,July,-0.19,JJA,Neutral
+2016,8,August,-0.34,JAS,Neutral
+2016,9,September,-0.42,ASO,Neutral
+2016,10,October,-0.51,SON,La Niña
+2016,11,November,-0.49,OND,Neutral
+2016,12,December,-0.37,NDJ,Neutral
+2017,1,January,-0.08,DJF,Neutral
+2017,2,February,0.08,JFM,Neutral
+2017,3,March,0.27,FMA,Neutral
+2017,4,April,0.32,MAM,Neutral
+2017,5,May,0.35,AMJ,Neutral
+2017,6,June,0.32,MJJ,Neutral
+2017,7,July,0.14,JJA,Neutral
+2017,8,August,-0.07,JAS,Neutral
+2017,9,September,-0.23,ASO,Neutral
+2017,10,October,-0.44,SON,Neutral
+2017,11,November,-0.61,OND,La Niña
+2017,12,December,-0.76,NDJ,La Niña
+2018,1,January,-0.71,DJF,La Niña
+2018,2,February,-0.67,JFM,La Niña
+2018,3,March,-0.55,FMA,La Niña
+2018,4,April,-0.35,MAM,Neutral
+2018,5,May,-0.07,AMJ,Neutral
+2018,6,June,0.13,MJJ,Neutral
+2018,7,July,0.2,JJA,Neutral
+2018,8,August,0.3,JAS,Neutral
+2018,9,September,0.52,ASO,El Niño
+2018,10,October,0.82,SON,El Niño
+2018,11,November,1.04,OND,El Niño
+2018,12,December,1.05,NDJ,El Niño
+2019,1,January,0.99,DJF,El Niño
+2019,2,February,0.94,JFM,El Niño
+2019,3,March,0.87,FMA,El Niño
+2019,4,April,0.82,MAM,El Niño
+2019,5,May,0.71,AMJ,El Niño
+2019,6,June,0.59,MJJ,El Niño
+2019,7,July,0.38,JJA,Neutral
+2019,8,August,0.2,JAS,Neutral
+2019,9,September,0.31,ASO,Neutral
+2019,10,October,0.51,SON,El Niño
+2019,11,November,0.72,OND,El Niño
+2019,12,December,0.75,NDJ,El Niño
+2020,1,January,0.71,DJF,El Niño
+2020,2,February,0.66,JFM,El Niño
+2020,3,March,0.57,FMA,El Niño
+2020,4,April,0.33,MAM,Neutral
+2020,5,May,0.04,AMJ,Neutral
+2020,6,June,-0.18,MJJ,Neutral
+2020,7,July,-0.29,JJA,Neutral
+2020,8,August,-0.43,JAS,Neutral
+2020,9,September,-0.77,ASO,La Niña
+2020,10,October,-1.0,SON,La Niña
+2020,11,November,-1.11,OND,La Niña
+2020,12,December,-1.06,NDJ,La Niña
+2021,1,January,-0.99,DJF,La Niña
+2021,2,February,-0.85,JFM,La Niña
+2021,3,March,-0.74,FMA,La Niña
+2021,4,April,-0.56,MAM,La Niña
+2021,5,May,-0.4,AMJ,Neutral
+2021,6,June,-0.31,MJJ,Neutral
+2021,7,July,-0.35,JJA,Neutral
+2021,8,August,-0.46,JAS,Neutral
+2021,9,September,-0.64,ASO,La Niña
+2021,10,October,-0.77,SON,La Niña
+2021,11,November,-0.91,OND,La Niña
+2021,12,December,-0.83,NDJ,La Niña
+2022,1,January,-0.76,DJF,La Niña
+2022,2,February,-0.68,JFM,La Niña
+2022,3,March,-0.77,FMA,La Niña
+2022,4,April,-0.86,MAM,La Niña
+2022,5,May,-0.83,AMJ,La Niña
+2022,6,June,-0.73,MJJ,La Niña
+2022,7,July,-0.7,JJA,La Niña
+2022,8,August,-0.78,JAS,La Niña
+2022,9,September,-0.87,ASO,La Niña
+2022,10,October,-0.89,SON,La Niña
+2022,11,November,-0.82,OND,La Niña
+2022,12,December,-0.7,NDJ,La Niña
+2023,1,January,-0.55,DJF,La Niña
+2023,2,February,-0.33,JFM,Neutral
+2023,3,March,-0.11,FMA,Neutral
+2023,4,April,0.19,MAM,Neutral
+2023,5,May,0.46,AMJ,Neutral
+2023,6,June,0.73,MJJ,El Niño
+2023,7,July,1.0,JJA,El Niño
+2023,8,August,1.25,JAS,El Niño
+2023,9,September,1.5,ASO,El Niño
+2023,10,October,1.74,SON,El Niño
+2023,11,November,1.9,OND,El Niño
+2023,12,December,1.99,NDJ,El Niño
+2024,1,January,1.84,DJF,El Niño
+2024,2,February,1.53,JFM,El Niño
+2024,3,March,1.18,FMA,El Niño
+2024,4,April,0.77,MAM,El Niño
+2024,5,May,0.43,AMJ,Neutral
+2024,6,June,0.18,MJJ,Neutral
+2024,7,July,0.06,JJA,Neutral
+2024,8,August,-0.04,JAS,Neutral
+2024,9,September,-0.12,ASO,Neutral
+2024,10,October,-0.19,SON,Neutral
+2024,11,November,-0.29,OND,Neutral
+2024,12,December,-0.43,NDJ,Neutral
+2025,1,January,-0.46,DJF,Neutral
+2025,2,February,-0.22,JFM,Neutral
+2025,3,March,-0.08,FMA,Neutral
+2025,4,April,0.02,MAM,Neutral
+2025,5,May,-0.04,AMJ,Neutral
+2025,6,June,-0.02,MJJ,Neutral
+2025,7,July,-0.11,JJA,Neutral
+2025,8,August,-0.26,JAS,Neutral
+2025,9,September,-0.43,ASO,Neutral
+2025,10,October,-0.57,SON,La Niña
+2025,11,November,-0.61,OND,La Niña
+2025,12,December,-0.6,NDJ,La Niña
+2026,1,January,-0.39,DJF,Neutral
+2026,2,February,-0.21,JFM,Neutral
+2026,3,March,0.11,FMA,Neutral
+2026,4,April,0.46,MAM,Neutral
+2026,5,May,0.95,AMJ,El Niño
+2026,6,June,1.39,MJJ,El Niño
+2026,7,July,1.8,JJA,El Niño
+2026,8,August,2.16,JAS,El Niño
