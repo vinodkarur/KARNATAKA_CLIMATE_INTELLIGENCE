@@ -31,10 +31,10 @@ except ImportError:
     WebPushException = Exception
 
 try:
-    from database.db import get_db_connection
+    from database.db import get_db_connection, DatabaseConnectionError
     from services.district_service import DISTRICT_REGISTRY
 except ImportError:
-    from backend.database.db import get_db_connection
+    from backend.database.db import get_db_connection, DatabaseConnectionError
     from backend.services.district_service import DISTRICT_REGISTRY
 
 logger = logging.getLogger("notification_service")
@@ -210,11 +210,13 @@ class NotificationService:
         if district not in DISTRICT_REGISTRY and district != "Statewide":
             district = "Bengaluru Urban"
 
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             # Check if endpoint already registered
             sql_check = "SELECT id FROM push_subscriptions WHERE endpoint = %s" if is_mysql else "SELECT id FROM push_subscriptions WHERE endpoint = ?"
             cursor.execute(sql_check, (endpoint,))
@@ -259,19 +261,27 @@ class NotificationService:
             logger.error(f"Push subscription error: {ex}")
             return {"status": "error", "message": f"Failed to save push subscription: {str(ex)}"}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def check_push_subscription_status(self, endpoint: Optional[str] = None, user_id: Optional[int] = None) -> Dict[str, Any]:
         """Check if a device subscription is registered and active in MySQL."""
         if not endpoint and not user_id:
             return {"status": "error", "message": "Endpoint or user_id required."}
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor(dictionary=True)
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor(dictionary=True)
             if endpoint:
                 sql = "SELECT id, user_id, district, endpoint, user_agent, is_active, subscribed_at FROM push_subscriptions WHERE endpoint = %s" if is_mysql else "SELECT id, user_id, district, endpoint, user_agent, is_active, subscribed_at FROM push_subscriptions WHERE endpoint = ?"
                 cursor.execute(sql, (endpoint,))
@@ -293,18 +303,25 @@ class NotificationService:
         except Exception as ex:
             return {"status": "error", "message": str(ex)}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def remove_push_subscription(self, endpoint: str) -> Dict[str, Any]:
         """Deactivate or remove a push subscription."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
             sql_del = "UPDATE push_subscriptions SET is_active = 0 WHERE endpoint = %s" if is_mysql else "UPDATE push_subscriptions SET is_active = 0 WHERE endpoint = ?"
             cursor.execute(sql_del, (endpoint,))
             conn.commit()
@@ -312,10 +329,16 @@ class NotificationService:
         except Exception as ex:
             return {"status": "error", "message": str(ex)}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def build_hazard_payload(
         self,
@@ -465,9 +488,15 @@ class NotificationService:
         hazard_type = payload.get("hazard_type", "Severe Weather Warning")
         severity = payload.get("severity", "CRITICAL")
 
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
+        conn = None
+        cursor = None
+        is_mysql = True
+        try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+        except Exception as conn_err:
+            logger.warning(f"Notification dispatch database connection deferred: {conn_err}")
 
         try:
             for sub in subscribers:
@@ -797,9 +826,15 @@ class NotificationService:
 
     def get_delivery_history(self, limit: int = 50) -> List[Dict[str, Any]]:
         """Fetch historical notification delivery records from database."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
+        conn = None
+        cursor = None
+        is_mysql = True
+        try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+        except Exception as conn_err:
+            logger.warning(f"Notification dispatch database connection deferred: {conn_err}")
 
         try:
             sql = "SELECT id, alert_id, channel, district, total_recipients, delivered_count, failed_count, delivery_status, executed_by, logged_at FROM notification_delivery_logs ORDER BY id DESC LIMIT %s" if is_mysql else "SELECT id, alert_id, channel, district, total_recipients, delivered_count, failed_count, delivery_status, executed_by, logged_at FROM notification_delivery_logs ORDER BY id DESC LIMIT ?"
@@ -831,9 +866,15 @@ class NotificationService:
 
     def get_admin_notification_stats(self) -> Dict[str, Any]:
         """Aggregate real-time telemetry for Admin Command Centre notification oversight."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
+        conn = None
+        cursor = None
+        is_mysql = True
+        try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+        except Exception as conn_err:
+            logger.warning(f"Notification dispatch database connection deferred: {conn_err}")
 
         stats = {
             "total_devices": 0,
@@ -903,9 +944,15 @@ class NotificationService:
 
     def _get_affected_subscribers(self, district: str, min_severity: str = "LOW") -> List[Dict[str, Any]]:
         """Query active push subscribers for the affected district or statewide, respecting opt-outs."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
+        conn = None
+        cursor = None
+        is_mysql = True
+        try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+        except Exception as conn_err:
+            logger.warning(f"Notification dispatch database connection deferred: {conn_err}")
 
         try:
             if district == "Statewide":

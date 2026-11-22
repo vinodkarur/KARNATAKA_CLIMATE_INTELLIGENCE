@@ -84,3 +84,6 @@ desktop.ini
 # Jupyter Notebook Checkpoints
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+
+# Production database export - never upload to GitHub
+backend/database/elnino_karnataka_db_production_export.sql

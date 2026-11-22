@@ -15,10 +15,10 @@ from typing import Any, Dict, List, Optional, Tuple
 from werkzeug.security import generate_password_hash, check_password_hash
 
 try:
-    from database.db import get_db_connection
+    from database.db import get_db_connection, DatabaseConnectionError
     from services.district_service import DISTRICT_REGISTRY
 except ImportError:
-    from backend.database.db import get_db_connection
+    from backend.database.db import get_db_connection, DatabaseConnectionError
     from backend.services.district_service import DISTRICT_REGISTRY
 
 logger = logging.getLogger("auth_service")
@@ -74,11 +74,13 @@ class AuthService:
             role = "USER"
 
         # 2. Check if user already exists
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             sql_check = "SELECT id FROM users WHERE email = %s" if is_mysql else "SELECT id FROM users WHERE email = ?"
             cursor.execute(sql_check, (email,))
             if cursor.fetchone():
@@ -132,14 +134,34 @@ class AuthService:
                 }
             }
 
+        except DatabaseConnectionError as dce:
+            logger.error(f"User registration database connection error: {dce}")
+            return {
+                "status": "error",
+                "code": "DB_UNAVAILABLE",
+                "message": "Database service is temporarily unavailable. Unable to register user at this time."
+            }
         except Exception as ex:
+            err_str = str(ex).lower()
+            if "can't connect" in err_str or "connection refused" in err_str or "lost connection" in err_str:
+                return {
+                    "status": "error",
+                    "code": "DB_UNAVAILABLE",
+                    "message": "Database service is temporarily unavailable. Unable to register user at this time."
+                }
             logger.error(f"User registration error: {ex}")
             return {"status": "error", "message": f"Database error: {str(ex)}"}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def authenticate_user(
         self,
@@ -164,11 +186,13 @@ class AuthService:
                 "is_locked": True,
             }
 
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             sql_find = "SELECT id, full_name, email, password_hash, role, primary_district, locality, is_active FROM users WHERE email = %s" if is_mysql else "SELECT id, full_name, email, password_hash, role, primary_district, locality, is_active FROM users WHERE email = ?"
             cursor.execute(sql_find, (email,))
             row = cursor.fetchone()
@@ -217,22 +241,44 @@ class AuthService:
                 }
             }
 
+        except DatabaseConnectionError as dce:
+            logger.error(f"Authentication database connection failure: {dce}")
+            return {
+                "status": "error",
+                "code": "DB_UNAVAILABLE",
+                "message": "Database service is temporarily unavailable. Please verify cloud database connection."
+            }
         except Exception as ex:
+            err_str = str(ex).lower()
+            if "can't connect" in err_str or "connection refused" in err_str or "lost connection" in err_str:
+                return {
+                    "status": "error",
+                    "code": "DB_UNAVAILABLE",
+                    "message": "Database service is temporarily unavailable. Please verify cloud database connection."
+                }
             logger.error(f"Authentication error: {ex}")
             return {"status": "error", "message": f"Authentication system error: {str(ex)}"}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def get_user_profile(self, user_id: int) -> Optional[Dict[str, Any]]:
         """Fetch complete user profile and notification preferences."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             sql_u = "SELECT id, full_name, email, mobile_number, role, primary_district, locality, created_at FROM users WHERE id = %s" if is_mysql else "SELECT id, full_name, email, mobile_number, role, primary_district, locality, created_at FROM users WHERE id = ?"
             cursor.execute(sql_u, (user_id,))
             u_row = cursor.fetchone()
@@ -268,10 +314,16 @@ class AuthService:
             logger.error(f"Error fetching profile: {ex}")
             return None
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def update_user_profile(
         self,
@@ -285,11 +337,13 @@ class AuthService:
         if primary_district not in DISTRICT_REGISTRY:
             primary_district = "Bengaluru Urban"
 
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             sql_up = "UPDATE users SET full_name = %s, mobile_number = %s, primary_district = %s, locality = %s WHERE id = %s" if is_mysql else "UPDATE users SET full_name = ?, mobile_number = ?, primary_district = ?, locality = ? WHERE id = ?"
             cursor.execute(sql_up, (full_name, mobile_number or "", primary_district, locality or "", user_id))
             conn.commit()
@@ -297,10 +351,16 @@ class AuthService:
         except Exception as ex:
             return {"status": "error", "message": str(ex)}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def update_notification_preferences(
         self,
@@ -313,11 +373,13 @@ class AuthService:
     ) -> Dict[str, Any]:
         """Update user notification channels and severity threshold."""
         hazard_str = ",".join(hazard_types) if hazard_types else "HEAVY_RAINFALL,FLOOD_RISK,EXTREME_HEAT,THUNDERSTORM_LIGHTNING,STRONG_WINDS"
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             sql_upsert = (
                 """
                 INSERT INTO user_notification_preferences (user_id, push_enabled, email_enabled, sms_enabled, min_severity, hazard_types)
@@ -342,18 +404,26 @@ class AuthService:
         except Exception as ex:
             return {"status": "error", "message": str(ex)}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def get_registered_users_stats(self) -> Dict[str, Any]:
         """Return total users count and district distribution for admin overview."""
-        conn = get_db_connection()
-        is_mysql = not hasattr(conn, "total_changes")
-        cursor = conn.cursor()
-
+        conn = None
+        cursor = None
         try:
+            conn = get_db_connection()
+            is_mysql = not hasattr(conn, "total_changes")
+            cursor = conn.cursor()
+
             cursor.execute("SELECT COUNT(*) FROM users")
             total = cursor.fetchone()[0]
 
@@ -372,13 +442,27 @@ class AuthService:
             logger.error(f"User stats error: {ex}")
             return {"total_users": 0, "active_push_subscribers": 0, "top_districts": {}}
         finally:
-            if hasattr(cursor, "close"):
-                cursor.close()
-            if hasattr(conn, "close"):
-                conn.close()
+            if cursor and hasattr(cursor, "close"):
+                try:
+                    cursor.close()
+                except Exception:
+                    pass
+            if conn and hasattr(conn, "close"):
+                try:
+                    conn.close()
+                except Exception:
+                    pass
 
     def _ensure_default_accounts(self) -> None:
         """Ensure default administrator and emergency officer accounts exist."""
+        try:
+            conn = get_db_connection()
+            if hasattr(conn, "close"):
+                conn.close()
+        except Exception as ex:
+            logger.debug(f"Default accounts check deferred (database offline: {ex})")
+            return
+
         try:
             # Create default admin if not exists
             self.register_user(

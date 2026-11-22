@@ -21,6 +21,7 @@ except ImportError:
 
 from database.db import (
     check_db_health,
+    validate_database_startup,
     export_alerts_csv,
     fetch_alert_history,
     fetch_prediction_history,
@@ -85,6 +86,14 @@ app = Flask(
     static_url_path="/static",
 )
 app.secret_key = os.environ.get("SECRET_KEY", "kci-enterprise-secret-key-2026")
+
+# Database configuration pre-flight validation
+db_startup = validate_database_startup()
+if db_startup.get("issues"):
+    for issue in db_startup["issues"]:
+        app.logger.warning(f"[DB CONFIG WARNING] {issue}")
+else:
+    app.logger.info(f"[DB CONFIG OK] MySQL connectivity established in {'production' if db_startup.get('is_production') else 'development'} mode.")
 
 
 class StrictJSONProvider(DefaultJSONProvider):
@@ -1647,38 +1656,58 @@ def api_alerts_details():
 # ===========================================================================
 @app.route("/api/auth/register", methods=["POST"])
 def api_auth_register():
-    data = request.get_json(silent=True) or {}
-    auth_svc = get_auth_service()
-    res = auth_svc.register_user(
-        full_name=data.get("full_name"),
-        email=data.get("email"),
-        password=data.get("password"),
-        confirm_password=data.get("confirm_password"),
-        mobile_number=data.get("mobile_number"),
-        primary_district=data.get("primary_district", "Bengaluru Urban"),
-        locality=data.get("locality"),
-        role=data.get("role", "USER"),
-        consent_given=data.get("consent_given", True),
-    )
-    code = 200 if res.get("status") == "success" else 400
-    return jsonify(res), code
+    try:
+        data = request.get_json(silent=True) or {}
+        auth_svc = get_auth_service()
+        res = auth_svc.register_user(
+            full_name=data.get("full_name"),
+            email=data.get("email"),
+            password=data.get("password"),
+            confirm_password=data.get("confirm_password"),
+            mobile_number=data.get("mobile_number"),
+            primary_district=data.get("primary_district", "Bengaluru Urban"),
+            locality=data.get("locality"),
+            role=data.get("role", "USER"),
+            consent_given=data.get("consent_given", True),
+        )
+        if res.get("code") == "DB_UNAVAILABLE":
+            return jsonify(res), 503
+        code = 200 if res.get("status") == "success" else 400
+        return jsonify(res), code
+    except Exception as exc:
+        app.logger.error(f"Registration route error: {exc}")
+        return jsonify({
+            "status": "error",
+            "code": "REGISTRATION_ERROR",
+            "message": "An unexpected error occurred during registration. Please try again."
+        }), 500
 
 
 @app.route("/api/auth/login", methods=["POST"])
 def api_auth_login():
-    data = request.get_json(silent=True) or {}
-    email = data.get("email")
-    password = data.get("password")
-    ip_addr = request.remote_addr
-    auth_svc = get_auth_service()
-    res = auth_svc.authenticate_user(email=email, password=password, ip_address=ip_addr)
-    if res.get("status") == "success":
-        user_info = res.get("user", {})
-        session["user_id"] = user_info.get("id")
-        session["role"] = user_info.get("role")
-        session["email"] = user_info.get("email")
-    code = 200 if res.get("status") == "success" else (429 if res.get("is_locked") else 401)
-    return jsonify(res), code
+    try:
+        data = request.get_json(silent=True) or {}
+        email = data.get("email")
+        password = data.get("password")
+        ip_addr = request.remote_addr
+        auth_svc = get_auth_service()
+        res = auth_svc.authenticate_user(email=email, password=password, ip_address=ip_addr)
+        if res.get("status") == "success":
+            user_info = res.get("user", {})
+            session["user_id"] = user_info.get("id")
+            session["role"] = user_info.get("role")
+            session["email"] = user_info.get("email")
+        if res.get("code") == "DB_UNAVAILABLE":
+            return jsonify(res), 503
+        code = 200 if res.get("status") == "success" else (429 if res.get("is_locked") else 401)
+        return jsonify(res), code
+    except Exception as exc:
+        app.logger.error(f"Login route error: {exc}")
+        return jsonify({
+            "status": "error",
+            "code": "LOGIN_ERROR",
+            "message": "An unexpected error occurred during login. Please try again."
+        }), 500
 
 
 @app.route("/api/auth/logout", methods=["POST", "GET"])
@@ -1689,14 +1718,22 @@ def api_auth_logout():
 
 @app.route("/api/auth/me", methods=["GET"])
 def api_auth_me():
-    user_id = request.args.get("user_id", type=int) or session.get("user_id")
-    if not user_id:
-        return jsonify({"status": "error", "message": "User ID or active session required."}), 400
-    auth_svc = get_auth_service()
-    profile = auth_svc.get_user_profile(user_id)
-    if not profile:
-        return jsonify({"status": "error", "message": "User not found."}), 404
-    return jsonify({"status": "success", "user": profile})
+    try:
+        user_id = request.args.get("user_id", type=int) or session.get("user_id")
+        if not user_id:
+            return jsonify({"status": "error", "message": "User ID or active session required."}), 400
+        auth_svc = get_auth_service()
+        profile = auth_svc.get_user_profile(user_id)
+        if not profile:
+            return jsonify({"status": "error", "message": "User not found or database unavailable."}), 404
+        return jsonify({"status": "success", "user": profile})
+    except Exception as exc:
+        app.logger.error(f"Auth profile route error: {exc}")
+        return jsonify({
+            "status": "error",
+            "code": "PROFILE_ERROR",
+            "message": "Unable to retrieve user profile."
+        }), 500
 
 
 @app.route("/api/auth/profile", methods=["PUT"])

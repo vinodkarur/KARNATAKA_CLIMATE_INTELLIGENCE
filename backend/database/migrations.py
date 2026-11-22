@@ -294,14 +294,16 @@ SQLITE_MIGRATION_STATEMENTS = [
 
 def run_database_migrations() -> Dict[str, Any]:
     """Execute all idempotent migrations against the active database."""
-    conn = get_db_connection()
-    is_mysql = not hasattr(conn, "total_changes")
-    stmts = MIGRATION_STATEMENTS if is_mysql else SQLITE_MIGRATION_STATEMENTS
-
-    success_count = 0
-    errors: List[str] = []
-
+    conn = None
+    cursor = None
     try:
+        conn = get_db_connection()
+        is_mysql = not hasattr(conn, "total_changes")
+        stmts = MIGRATION_STATEMENTS if is_mysql else SQLITE_MIGRATION_STATEMENTS
+
+        success_count = 0
+        errors: List[str] = []
+
         cursor = conn.cursor()
         for stmt in stmts:
             stmt_clean = stmt.strip()
@@ -318,18 +320,28 @@ def run_database_migrations() -> Dict[str, Any]:
                     logger.warning(f"Migration statement notice: {ex}")
 
         conn.commit()
-        if hasattr(cursor, "close"):
-            cursor.close()
-        if hasattr(conn, "close"):
-            conn.close()
-
+        return {
+            "status": "success" if not errors else "partial",
+            "backend": "MySQL" if is_mysql else "SQLite",
+            "applied_tables_count": success_count,
+            "errors": errors,
+        }
     except Exception as fatal_ex:
-        errors.append(str(fatal_ex))
         logger.error(f"Migration execution error: {fatal_ex}")
-
-    return {
-        "status": "success" if not errors else "partial",
-        "backend": "MySQL" if is_mysql else "SQLite",
-        "applied_tables_count": success_count,
-        "errors": errors,
-    }
+        return {
+            "status": "error",
+            "backend": "Unknown",
+            "applied_tables_count": 0,
+            "errors": [str(fatal_ex)],
+        }
+    finally:
+        if cursor and hasattr(cursor, "close"):
+            try:
+                cursor.close()
+            except Exception:
+                pass
+        if conn and hasattr(conn, "close"):
+            try:
+                conn.close()
+            except Exception:
+                pass

@@ -21,9 +21,24 @@ except ImportError:
 
 try:
     import mysql.connector
-    from mysql.connector import errorcode
+    from mysql.connector import errorcode, pooling
 except ImportError:
     mysql = None
+
+import logging
+import threading
+
+logger = logging.getLogger("database.db")
+
+
+class DatabaseConnectionError(Exception):
+    """Raised when MySQL database connectivity or configuration fails."""
+    pass
+
+
+_DB_POOL: Optional[Any] = None
+_POOL_LOCK = threading.Lock()
+_LAST_POOL_CONFIG: Dict[str, Any] = {}
 
 SQLITE_PATH = Path(__file__).resolve().parent / "predictions_local.sqlite"
 
@@ -150,27 +165,205 @@ def _init_sqlite():
 _init_sqlite()
 
 
-def get_db_config() -> dict:
+def is_production() -> bool:
+    """Determine whether the platform is running in production (e.g. Render)."""
+    return bool(os.getenv("RENDER") or os.getenv("FLASK_ENV", "").lower() == "production")
+
+
+def mask_connection_config(config: dict) -> dict:
+    """Sanitize database configuration dictionary for safe logging and diagnostics."""
     return {
-        "host": os.getenv("MYSQL_HOST", "localhost"),
-        "user": os.getenv("MYSQL_USER", "root"),
-        "password": os.getenv("MYSQL_PASSWORD", ""),
-        "port": int(os.getenv("MYSQL_PORT", "3306")),
-        "database": os.getenv("MYSQL_DATABASE", "elnino_karnataka_db"),
-        "connect_timeout": 2,
+        "host": config.get("host") or "<not-configured>",
+        "port": config.get("port", 3306),
+        "user": config.get("user") or "<not-configured>",
+        "database": config.get("database", "elnino_karnataka_db"),
+        "ssl": bool(not config.get("ssl_disabled", True)),
+        "password_configured": bool(config.get("password")),
     }
 
 
-def get_db_connection():
-    """Create and return a MySQL database connection."""
+def get_db_config() -> dict:
+    """Extract, validate, and construct database configuration from environment variables.
+
+    In development: defaults host to 'localhost' for convenient local development.
+    In production (Render): does NOT default host to 'localhost', requiring a remote MySQL host.
+    """
+    prod = is_production()
+    default_host = "" if prod else "localhost"
+    host = os.getenv("MYSQL_HOST", default_host).strip()
+
+    port_raw = os.getenv("MYSQL_PORT", "3306").strip()
+    try:
+        port = int(port_raw)
+    except ValueError:
+        port = 3306
+
+    user = os.getenv("MYSQL_USER", "root" if not prod else "").strip()
+    password = os.getenv("MYSQL_PASSWORD", "")
+    database = os.getenv("MYSQL_DATABASE", "elnino_karnataka_db").strip()
+
+    # Connection timeout: 10s default for remote cloud DBs, configurable
+    timeout_raw = os.getenv("MYSQL_CONNECT_TIMEOUT", "10").strip()
+    try:
+        connect_timeout = max(2, min(60, int(timeout_raw)))
+    except ValueError:
+        connect_timeout = 10
+
+    cfg: Dict[str, Any] = {
+        "host": host,
+        "user": user,
+        "password": password,
+        "port": port,
+        "database": database,
+        "connect_timeout": connect_timeout,
+    }
+
+    # SSL / TLS configuration for remote cloud MySQL
+    is_remote = bool(host and host.lower() not in ("localhost", "127.0.0.1"))
+    ssl_mode = os.getenv("MYSQL_SSL_MODE", "REQUIRED" if is_remote else "DISABLED").upper().strip()
+
+    if ssl_mode in ("REQUIRED", "PREFERRED", "TRUE", "1") or (is_remote and ssl_mode != "DISABLED"):
+        cfg["ssl_disabled"] = False
+        ssl_ca = os.getenv("MYSQL_SSL_CA", "").strip()
+        if ssl_ca and os.path.exists(ssl_ca):
+            cfg["ssl_ca"] = ssl_ca
+        ssl_verify = os.getenv("MYSQL_SSL_VERIFY_CERT")
+        if ssl_verify is not None:
+            cfg["ssl_verify_cert"] = ssl_verify.lower() in ("true", "1", "yes")
+    else:
+        cfg["ssl_disabled"] = True
+
+    return cfg
+
+
+def _get_connection_pool(config: dict) -> Any:
+    """Manage a thread-safe connection pool for MySQL."""
+    global _DB_POOL, _LAST_POOL_CONFIG
+    if pooling is None:
+        return None
+
+    pool_cfg = config.copy()
+    pool_cfg_key = {k: v for k, v in pool_cfg.items() if k != "password"}
+
+    with _POOL_LOCK:
+        if _DB_POOL is not None and pool_cfg_key == _LAST_POOL_CONFIG:
+            return _DB_POOL
+
+        pool_size_raw = os.getenv("MYSQL_POOL_SIZE", "5").strip()
+        try:
+            pool_size = max(1, min(20, int(pool_size_raw)))
+        except ValueError:
+            pool_size = 5
+
+        try:
+            _DB_POOL = pooling.MySQLConnectionPool(
+                pool_name="kci_production_pool",
+                pool_size=pool_size,
+                pool_reset_session=True,
+                **pool_cfg,
+            )
+            _LAST_POOL_CONFIG = pool_cfg_key
+            logger.info(f"Initialized MySQL connection pool (size={pool_size}) for {pool_cfg['host']}:{pool_cfg['port']}")
+            return _DB_POOL
+        except Exception as pool_ex:
+            logger.warning(f"Failed to initialize connection pool: {pool_ex}. Will use direct connections.")
+            _DB_POOL = None
+            return None
+
+
+def get_db_connection(use_pool: bool = True):
+    """Create and return a MySQL database connection with optional pooling.
+
+    Raises DatabaseConnectionError if MySQL is misconfigured or unreachable.
+    Never returns an unhandled exception or silent crash.
+    """
     if mysql is None:
-        raise RuntimeError("mysql-connector-python is not installed")
+        raise DatabaseConnectionError("mysql-connector-python is not installed.")
+
     config = get_db_config()
-    return mysql.connector.connect(**config)
+    host = config.get("host", "").strip()
+
+    # Production environment validation
+    if is_production():
+        if not host:
+            raise DatabaseConnectionError(
+                "MYSQL_HOST is not configured in production environment. "
+                "Please configure MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE in Render Environment Variables."
+            )
+        if host.lower() in ("localhost", "127.0.0.1"):
+            raise DatabaseConnectionError(
+                f"Invalid production MySQL host '{host}'. Render web services run in isolated "
+                "containers without a local MySQL server. A remote cloud MySQL host is required."
+            )
+
+    # Try pooled connection first if requested
+    if use_pool:
+        try:
+            pool = _get_connection_pool(config)
+            if pool is not None:
+                conn = pool.get_connection()
+                try:
+                    conn.ping(reconnect=True, attempts=2, delay=1)
+                except Exception:
+                    pass
+                return conn
+        except Exception as pool_err:
+            logger.debug(f"Pooled connection acquisition note: {pool_err}. Attempting direct connection.")
+
+    # Direct connection attempt
+    try:
+        conn = mysql.connector.connect(**config)
+        return conn
+    except Exception as exc:
+        safe = mask_connection_config(config)
+        err_msg = str(exc)
+        logger.error(f"MySQL connection error to {safe['host']}:{safe['port']}/{safe['database']} as '{safe['user']}': {err_msg}")
+        raise DatabaseConnectionError(
+            f"Cannot connect to MySQL database at '{safe['host']}:{safe['port']}': {err_msg}"
+        ) from exc
+
+
+def validate_database_startup() -> Dict[str, Any]:
+    """Perform a non-fatal pre-flight validation of database settings at application startup."""
+    prod = is_production()
+    cfg = get_db_config()
+    safe = mask_connection_config(cfg)
+    issues = []
+
+    if prod:
+        if not cfg["host"]:
+            issues.append("MYSQL_HOST is missing in Render environment variables.")
+        elif cfg["host"].lower() in ("localhost", "127.0.0.1"):
+            issues.append(f"MYSQL_HOST is set to '{cfg['host']}', which cannot resolve inside Render containers.")
+        if not cfg["user"]:
+            issues.append("MYSQL_USER is not configured.")
+        if not cfg["password"]:
+            issues.append("MYSQL_PASSWORD is not configured.")
+
+    is_reachable = False
+    ping_error = None
+    try:
+        conn = get_db_connection(use_pool=False)
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1")
+        cursor.fetchone()
+        cursor.close()
+        conn.close()
+        is_reachable = True
+    except Exception as e:
+        ping_error = str(e)
+
+    return {
+        "is_production": prod,
+        "config": safe,
+        "is_reachable": is_reachable,
+        "issues": issues,
+        "ping_error": ping_error,
+    }
 
 
 def check_db_health() -> Dict[str, Any]:
-    """Test database connectivity across MySQL and local SQLite storage."""
+    """Test database connectivity across MySQL and local storage."""
     # Check MySQL
     mysql_status = None
     if mysql is not None:
@@ -186,7 +379,7 @@ def check_db_health() -> Dict[str, Any]:
             counts = {}
             for tbl in [
                 "weather_climate_data", "predictions", "adaptation_recommendations", "early_warning_alerts",
-                "algorithm_evaluations", "live_weather_records", "model_monitoring_history"
+                "algorithm_evaluations", "live_weather_records", "model_monitoring_history", "users"
             ]:
                 if tbl in tables:
                     cursor.execute(f"SELECT COUNT(*) FROM `{tbl}`")
@@ -203,11 +396,26 @@ def check_db_health() -> Dict[str, Any]:
                 "version": version,
                 "tables": tables,
                 "record_counts": counts,
+                "config": mask_connection_config(get_db_config()),
             }
         except Exception as err:
             mysql_status = str(err)
 
-    # SQLite fallback status
+    # In production, do not mask MySQL failure as a successful SQLite fallback
+    if is_production():
+        return {
+            "status": "error",
+            "backend": "MySQL (Production Cloud Database)",
+            "mysql_status": "offline",
+            "mysql_error": mysql_status or "Remote MySQL host not reachable",
+            "config": mask_connection_config(get_db_config()),
+            "hint": (
+                "Ensure Render environment variables are configured: "
+                "MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE."
+            ),
+        }
+
+    # SQLite fallback status (Development only)
     sqlite_count = 0
     alerts_count = 0
     try:
@@ -231,9 +439,10 @@ def check_db_health() -> Dict[str, Any]:
         "sqlite_alerts": alerts_count,
         "mysql_status": "offline",
         "mysql_error": mysql_status or "MySQL credentials not configured",
+        "config": mask_connection_config(get_db_config()),
         "hint": (
-            "Operating reliably on local SQLite database. "
-            "To connect MySQL, configure MYSQL_PASSWORD in backend/.env."
+            "Operating on local development SQLite fallback. "
+            "To connect local MySQL, configure MYSQL_PASSWORD in .env."
         ),
     }
 
@@ -330,7 +539,11 @@ def save_prediction_record(
     if mysql_saved:
         return "Saved to MySQL successfully"
 
-    # 2. Local SQLite fallback (guaranteed persistence)
+    if is_production():
+        logger.error(f"Production database write failed: {mysql_err}")
+        return f"Database error (Production MySQL write failure: {mysql_err})"
+
+    # 2. Local SQLite fallback (guaranteed persistence in development)
     try:
         with sqlite3.connect(str(SQLITE_PATH)) as sconn:
             sc = sconn.cursor()
@@ -435,7 +648,12 @@ def fetch_prediction_history(
                 except Exception:
                     pass
 
-    # 2. Try SQLite
+    # In production, do not silently switch to local empty SQLite
+    if is_production():
+        logger.warning("Production MySQL prediction history fetch failed.")
+        return []
+
+    # 2. Try SQLite (development only)
     try:
         with sqlite3.connect(str(SQLITE_PATH)) as conn:
             conn.row_factory = sqlite3.Row
@@ -696,7 +914,11 @@ def save_alert_records(
     if mysql_saved:
         return f"Successfully saved {len(records_to_save)} alerts to MySQL"
 
-    # 2. Local SQLite fallback
+    if is_production():
+        logger.error(f"Production alerts save failed: {mysql_err}")
+        return f"Database error (Production MySQL write failure: {mysql_err})"
+
+    # 2. Local SQLite fallback (Development only)
     try:
         with sqlite3.connect(str(SQLITE_PATH)) as conn:
             c = conn.cursor()
@@ -787,7 +1009,12 @@ def fetch_alert_history(
                 except Exception:
                     pass
 
-    # 2. SQLite Fallback
+    # In production, do not silently switch to local empty SQLite
+    if is_production():
+        logger.warning("Production MySQL alerts fetch failed.")
+        return []
+
+    # 2. SQLite Fallback (Development only)
     try:
         with sqlite3.connect(str(SQLITE_PATH)) as conn:
             conn.row_factory = sqlite3.Row
