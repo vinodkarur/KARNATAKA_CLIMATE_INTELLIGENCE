@@ -44,17 +44,16 @@ def parse_arguments():
     parser.add_argument("--password", default=os.getenv("MYSQL_PASSWORD"), help="Remote MySQL password")
     parser.add_argument("--database", default=os.getenv("MYSQL_DATABASE", "elnino_karnataka_db"), help="Remote database name")
     parser.add_argument("--ssl-mode", default=os.getenv("MYSQL_SSL_MODE", "REQUIRED"), help="SSL Mode (REQUIRED or DISABLED)")
+    parser.add_argument("--ssl-ca", default=os.getenv("MYSQL_SSL_CA"), help="Path to CA certificate bundle (e.g. /etc/ssl/certs/ca-certificates.crt)")
+    parser.add_argument("--ssl-verify-cert", default=os.getenv("MYSQL_SSL_VERIFY_CERT"), help="Enable SSL certificate verification (true/false)")
     parser.add_argument("--sql-file", default=None, help="Path to SQL dump file (optional, auto-generated if omitted)")
     return parser.parse_args()
 
 
-def migrate_to_cloud(args=None):
+def build_target_config(args=None) -> dict:
+    """Construct and validate target database connection dictionary with SSL/TLS parameters."""
     if args is None:
         args = parse_arguments()
-
-    print("=" * 70)
-    print("  Karnataka Climate Intelligence — Cloud MySQL Migration Engine")
-    print("=" * 70)
 
     target_cfg = {
         "host": (args.host or "").strip(),
@@ -69,9 +68,34 @@ def migrate_to_cloud(args=None):
     ssl_mode = (args.ssl_mode or "REQUIRED").upper().strip()
     if ssl_mode in ("REQUIRED", "PREFERRED", "TRUE", "1") or (is_remote and ssl_mode != "DISABLED"):
         target_cfg["ssl_disabled"] = False
+
+        ssl_ca = (args.ssl_ca if hasattr(args, "ssl_ca") and args.ssl_ca else os.getenv("MYSQL_SSL_CA", "")).strip()
+        if ssl_ca and os.path.exists(ssl_ca):
+            target_cfg["ssl_ca"] = ssl_ca
+        elif ssl_ca:
+            target_cfg["ssl_ca"] = ssl_ca
+
+        ssl_verify = args.ssl_verify_cert if hasattr(args, "ssl_verify_cert") and args.ssl_verify_cert is not None else os.getenv("MYSQL_SSL_VERIFY_CERT")
+        if ssl_verify is not None:
+            if isinstance(ssl_verify, bool):
+                target_cfg["ssl_verify_cert"] = ssl_verify
+            else:
+                target_cfg["ssl_verify_cert"] = str(ssl_verify).lower() in ("true", "1", "yes")
     else:
         target_cfg["ssl_disabled"] = True
 
+    return target_cfg
+
+
+def migrate_to_cloud(args=None):
+    if args is None:
+        args = parse_arguments()
+
+    print("=" * 70)
+    print("  Karnataka Climate Intelligence — Cloud MySQL Migration Engine")
+    print("=" * 70)
+
+    target_cfg = build_target_config(args)
     masked_target = mask_connection_config(target_cfg)
 
     if not target_cfg["host"]:
@@ -88,6 +112,10 @@ def migrate_to_cloud(args=None):
     print(f"Target Database   : {masked_target['database']}")
     print(f"Target User       : {masked_target['user']}")
     print(f"SSL/TLS Encryption: {'ENABLED' if masked_target['ssl'] else 'DISABLED'}")
+    if target_cfg.get("ssl_ca"):
+        print(f"SSL CA Bundle     : {target_cfg['ssl_ca']}")
+    if "ssl_verify_cert" in target_cfg:
+        print(f"SSL Verify Cert   : {target_cfg['ssl_verify_cert']}")
     print("-" * 70)
 
     # 1. Test connectivity to target

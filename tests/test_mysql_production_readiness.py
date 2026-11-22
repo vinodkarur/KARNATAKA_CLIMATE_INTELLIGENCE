@@ -36,6 +36,7 @@ from database.db import (
     is_production,
     DatabaseConnectionError,
 )
+from database.migrate_to_cloud import build_target_config, parse_arguments
 from services.auth_service import get_auth_service
 from app import app
 
@@ -264,6 +265,88 @@ class TestMySQLProductionReadiness(unittest.TestCase):
         content_head = export_file.read_text(encoding="utf-8", errors="ignore")[:2000]
         self.assertIn("PRODUCTION DATABASE EXPORT: elnino_karnataka_db", content_head)
         self.assertIn("SET FOREIGN_KEY_CHECKS = 0;", content_head)
+
+    def test_13_ssl_ca_and_verify_configuration_runtime(self):
+        """Verify get_db_config sets ssl_ca and ssl_verify_cert when configured in environment."""
+        orig_ca = os.environ.get("MYSQL_SSL_CA")
+        orig_verify = os.environ.get("MYSQL_SSL_VERIFY_CERT")
+        orig_host = os.environ.get("MYSQL_HOST")
+
+        try:
+            os.environ["MYSQL_HOST"] = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
+            os.environ["MYSQL_SSL_CA"] = "/etc/ssl/certs/ca-certificates.crt"
+            os.environ["MYSQL_SSL_VERIFY_CERT"] = "true"
+
+            cfg = get_db_config()
+            self.assertEqual(cfg.get("ssl_disabled"), False, "SSL must be enabled for remote host")
+            self.assertEqual(cfg.get("ssl_ca"), "/etc/ssl/certs/ca-certificates.crt")
+            self.assertIs(cfg.get("ssl_verify_cert"), True)
+        finally:
+            if orig_ca is not None:
+                os.environ["MYSQL_SSL_CA"] = orig_ca
+            else:
+                os.environ.pop("MYSQL_SSL_CA", None)
+
+            if orig_verify is not None:
+                os.environ["MYSQL_SSL_VERIFY_CERT"] = orig_verify
+            else:
+                os.environ.pop("MYSQL_SSL_VERIFY_CERT", None)
+
+            if orig_host is not None:
+                os.environ["MYSQL_HOST"] = orig_host
+            else:
+                os.environ.pop("MYSQL_HOST", None)
+
+    def test_14_migration_script_ssl_ca_and_verify_configuration(self):
+        """Verify build_target_config in migrate_to_cloud passes ssl_ca and ssl_verify_cert from env and CLI."""
+        # Test 1: Via environment variables
+        orig_ca = os.environ.get("MYSQL_SSL_CA")
+        orig_verify = os.environ.get("MYSQL_SSL_VERIFY_CERT")
+        orig_host = os.environ.get("MYSQL_HOST")
+
+        try:
+            os.environ["MYSQL_HOST"] = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
+            os.environ["MYSQL_SSL_CA"] = "/etc/ssl/certs/ca-certificates.crt"
+            os.environ["MYSQL_SSL_VERIFY_CERT"] = "true"
+
+            cfg = build_target_config()
+            self.assertEqual(cfg.get("ssl_disabled"), False)
+            self.assertEqual(cfg.get("ssl_ca"), "/etc/ssl/certs/ca-certificates.crt")
+            self.assertIs(cfg.get("ssl_verify_cert"), True)
+        finally:
+            if orig_ca is not None:
+                os.environ["MYSQL_SSL_CA"] = orig_ca
+            else:
+                os.environ.pop("MYSQL_SSL_CA", None)
+
+            if orig_verify is not None:
+                os.environ["MYSQL_SSL_VERIFY_CERT"] = orig_verify
+            else:
+                os.environ.pop("MYSQL_SSL_VERIFY_CERT", None)
+
+            if orig_host is not None:
+                os.environ["MYSQL_HOST"] = orig_host
+            else:
+                os.environ.pop("MYSQL_HOST", None)
+
+        # Test 2: Via parsed CLI arguments object
+        class MockArgs:
+            host = "gateway01.ap-southeast-1.prod.aws.tidbcloud.com"
+            port = 4000
+            user = "mock_tidb_user"
+            password = "mock_password"
+            database = "elnino_karnataka_db"
+            ssl_mode = "REQUIRED"
+            ssl_ca = "/etc/ssl/certs/ca-certificates.crt"
+            ssl_verify_cert = True
+            sql_file = None
+
+        cli_cfg = build_target_config(MockArgs())
+        self.assertEqual(cli_cfg.get("ssl_disabled"), False)
+        self.assertEqual(cli_cfg.get("ssl_ca"), "/etc/ssl/certs/ca-certificates.crt")
+        self.assertIs(cli_cfg.get("ssl_verify_cert"), True)
+        self.assertEqual(cli_cfg.get("port"), 4000)
+
 
 
 if __name__ == "__main__":

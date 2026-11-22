@@ -225,7 +225,7 @@ def get_db_config() -> dict:
     if ssl_mode in ("REQUIRED", "PREFERRED", "TRUE", "1") or (is_remote and ssl_mode != "DISABLED"):
         cfg["ssl_disabled"] = False
         ssl_ca = os.getenv("MYSQL_SSL_CA", "").strip()
-        if ssl_ca and os.path.exists(ssl_ca):
+        if ssl_ca:
             cfg["ssl_ca"] = ssl_ca
         ssl_verify = os.getenv("MYSQL_SSL_VERIFY_CERT")
         if ssl_verify is not None:
